@@ -10,7 +10,7 @@ end binaryCtr;
 
 architecture behav of binaryCtr is
 
-
+--ummm
 begin
 
 
