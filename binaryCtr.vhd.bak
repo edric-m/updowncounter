@@ -10,10 +10,6 @@ end binaryCtr;
 
 architecture behav of binaryCtr is
 
-component jkff
-	port ( J, K, clk : in std_logic;
-			 Q, nQ: out std_logic);
-end component;
 
 begin
 

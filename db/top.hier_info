@@ -1,0 +1,81 @@
+|top
+control[0] => ~NO_FANOUT~
+control[1] => ~NO_FANOUT~
+control[2] => ~NO_FANOUT~
+control[3] => binaryCtr:c.isUp
+control[4] => binaryCtr:c.reset
+control[5] => clockdiv:f.en
+clock => clockdiv:f.clk
+led <= led.DB_MAX_OUTPUT_PORT_TYPE
+gray[0] <= comb.DB_MAX_OUTPUT_PORT_TYPE
+gray[1] <= gray[1].DB_MAX_OUTPUT_PORT_TYPE
+gray[2] <= gray[2].DB_MAX_OUTPUT_PORT_TYPE
+gray[3] <= gray[3].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|clockDiv:f
+clk => sclk.CLK
+clk => ctr[0].CLK
+clk => ctr[1].CLK
+clk => ctr[2].CLK
+clk => ctr[3].CLK
+clk => ctr[4].CLK
+clk => ctr[5].CLK
+clk => ctr[6].CLK
+clk => ctr[7].CLK
+clk => ctr[8].CLK
+clk => ctr[9].CLK
+clk => ctr[10].CLK
+clk => ctr[11].CLK
+clk => ctr[12].CLK
+clk => ctr[13].CLK
+clk => ctr[14].CLK
+clk => ctr[15].CLK
+clk => ctr[16].CLK
+clk => ctr[17].CLK
+clk => ctr[18].CLK
+clk => ctr[19].CLK
+clk => ctr[20].CLK
+clk => ctr[21].CLK
+clk => ctr[22].CLK
+clk => ctr[23].CLK
+clk => ctr[24].CLK
+en => sclk.ENA
+en => ctr[24].ENA
+en => ctr[23].ENA
+en => ctr[22].ENA
+en => ctr[21].ENA
+en => ctr[20].ENA
+en => ctr[19].ENA
+en => ctr[18].ENA
+en => ctr[17].ENA
+en => ctr[16].ENA
+en => ctr[15].ENA
+en => ctr[14].ENA
+en => ctr[13].ENA
+en => ctr[12].ENA
+en => ctr[11].ENA
+en => ctr[10].ENA
+en => ctr[9].ENA
+en => ctr[8].ENA
+en => ctr[7].ENA
+en => ctr[6].ENA
+en => ctr[5].ENA
+en => ctr[4].ENA
+en => ctr[3].ENA
+en => ctr[2].ENA
+en => ctr[1].ENA
+en => ctr[0].ENA
+slow_clk <= sclk.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|binaryCtr:c
+reset => ~NO_FANOUT~
+clock => ~NO_FANOUT~
+isUp => ~NO_FANOUT~
+bVal[0] <= comb.DB_MAX_OUTPUT_PORT_TYPE
+bVal[1] <= bVal[1].DB_MAX_OUTPUT_PORT_TYPE
+bVal[2] <= bVal[2].DB_MAX_OUTPUT_PORT_TYPE
+bVal[3] <= bVal[3].DB_MAX_OUTPUT_PORT_TYPE
+
+
