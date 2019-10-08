@@ -10,7 +10,16 @@ end top;
 
 architecture behav of top is
 
+signal clk : std_logic;
+
+component clockdiv
+		port(clk : in std_logic;
+				en	: in std_logic;
+				slow_clk : out std_logic);
+end component;
 
 begin
+
+f : clockDiv port map (clk => clock, en => control(5), slow_clk => clk);
 
 end behav;
