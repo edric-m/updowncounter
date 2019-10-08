@@ -11,6 +11,7 @@ end top;
 architecture behav of top is
 
 signal clk : std_logic;
+signal bin : std_logic_vector(3 downto 0);
 
 component clockdiv
 		port(clk : in std_logic;
@@ -18,8 +19,16 @@ component clockdiv
 				slow_clk : out std_logic);
 end component;
 
+component binaryCtr
+	port (reset : in std_logic;
+			clock : in std_logic;
+			isUp : in std_logic;
+			bVal : out std_logic_vector(3 downto 0));
+end component;
+
 begin
 
 f : clockDiv port map (clk => clock, en => control(5), slow_clk => clk);
+c : binaryCtr port map (reset => control(4), clock => clk, isUp => control(3), bVal => bin);
 
 end behav;
