@@ -16,7 +16,7 @@
 -- PROGRAM "Quartus Prime"
 -- VERSION "Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition"
 
--- DATE "10/08/2019 11:14:39"
+-- DATE "10/13/2019 10:34:25"
 
 -- 
 -- Device: Altera EP4CE6E22C8 Package TQFP144
@@ -79,7 +79,7 @@ ENTITY 	top IS
 	control : IN std_logic_vector(5 DOWNTO 0);
 	clock : IN std_logic;
 	led : OUT std_logic;
-	gray : OUT std_logic_vector(3 DOWNTO 0)
+	dec : OUT std_logic_vector(3 DOWNTO 0)
 	);
 END top;
 
@@ -92,10 +92,10 @@ END top;
 -- control[5]	=>  Location: PIN_52,	 I/O Standard: 2.5 V,	 Current Strength: Default
 -- clock	=>  Location: PIN_54,	 I/O Standard: 2.5 V,	 Current Strength: Default
 -- led	=>  Location: PIN_113,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- gray[0]	=>  Location: PIN_49,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- gray[1]	=>  Location: PIN_53,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- gray[2]	=>  Location: PIN_33,	 I/O Standard: 2.5 V,	 Current Strength: Default
--- gray[3]	=>  Location: PIN_142,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- dec[0]	=>  Location: PIN_49,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- dec[1]	=>  Location: PIN_53,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- dec[2]	=>  Location: PIN_33,	 I/O Standard: 2.5 V,	 Current Strength: Default
+-- dec[3]	=>  Location: PIN_142,	 I/O Standard: 2.5 V,	 Current Strength: Default
 
 
 ARCHITECTURE structure OF top IS
@@ -111,7 +111,7 @@ SIGNAL ww_devpor : std_logic;
 SIGNAL ww_control : std_logic_vector(5 DOWNTO 0);
 SIGNAL ww_clock : std_logic;
 SIGNAL ww_led : std_logic;
-SIGNAL ww_gray : std_logic_vector(3 DOWNTO 0);
+SIGNAL ww_dec : std_logic_vector(3 DOWNTO 0);
 SIGNAL \control[0]~input_o\ : std_logic;
 SIGNAL \control[1]~input_o\ : std_logic;
 SIGNAL \control[2]~input_o\ : std_logic;
@@ -120,10 +120,10 @@ SIGNAL \control[4]~input_o\ : std_logic;
 SIGNAL \control[5]~input_o\ : std_logic;
 SIGNAL \clock~input_o\ : std_logic;
 SIGNAL \led~output_o\ : std_logic;
-SIGNAL \gray[0]~output_o\ : std_logic;
-SIGNAL \gray[1]~output_o\ : std_logic;
-SIGNAL \gray[2]~output_o\ : std_logic;
-SIGNAL \gray[3]~output_o\ : std_logic;
+SIGNAL \dec[0]~output_o\ : std_logic;
+SIGNAL \dec[1]~output_o\ : std_logic;
+SIGNAL \dec[2]~output_o\ : std_logic;
+SIGNAL \dec[3]~output_o\ : std_logic;
 
 COMPONENT hard_block
     PORT (
@@ -137,7 +137,7 @@ BEGIN
 ww_control <= control;
 ww_clock <= clock;
 led <= ww_led;
-gray <= ww_gray;
+dec <= ww_dec;
 ww_devoe <= devoe;
 ww_devclrn <= devclrn;
 ww_devpor <= devpor;
@@ -160,7 +160,7 @@ PORT MAP (
 	o => \led~output_o\);
 
 -- Location: IOOBUF_X13_Y0_N16
-\gray[0]~output\ : cycloneive_io_obuf
+\dec[0]~output\ : cycloneive_io_obuf
 -- pragma translate_off
 GENERIC MAP (
 	bus_hold => "false",
@@ -169,10 +169,10 @@ GENERIC MAP (
 PORT MAP (
 	i => GND,
 	devoe => ww_devoe,
-	o => \gray[0]~output_o\);
+	o => \dec[0]~output_o\);
 
 -- Location: IOOBUF_X16_Y0_N2
-\gray[1]~output\ : cycloneive_io_obuf
+\dec[1]~output\ : cycloneive_io_obuf
 -- pragma translate_off
 GENERIC MAP (
 	bus_hold => "false",
@@ -181,10 +181,10 @@ GENERIC MAP (
 PORT MAP (
 	i => GND,
 	devoe => ww_devoe,
-	o => \gray[1]~output_o\);
+	o => \dec[1]~output_o\);
 
 -- Location: IOOBUF_X0_Y6_N23
-\gray[2]~output\ : cycloneive_io_obuf
+\dec[2]~output\ : cycloneive_io_obuf
 -- pragma translate_off
 GENERIC MAP (
 	bus_hold => "false",
@@ -193,10 +193,10 @@ GENERIC MAP (
 PORT MAP (
 	i => GND,
 	devoe => ww_devoe,
-	o => \gray[2]~output_o\);
+	o => \dec[2]~output_o\);
 
 -- Location: IOOBUF_X3_Y24_N23
-\gray[3]~output\ : cycloneive_io_obuf
+\dec[3]~output\ : cycloneive_io_obuf
 -- pragma translate_off
 GENERIC MAP (
 	bus_hold => "false",
@@ -205,7 +205,7 @@ GENERIC MAP (
 PORT MAP (
 	i => GND,
 	devoe => ww_devoe,
-	o => \gray[3]~output_o\);
+	o => \dec[3]~output_o\);
 
 -- Location: IOIBUF_X0_Y11_N15
 \control[0]~input\ : cycloneive_io_ibuf
@@ -286,13 +286,13 @@ PORT MAP (
 
 ww_led <= \led~output_o\;
 
-ww_gray(0) <= \gray[0]~output_o\;
+ww_dec(0) <= \dec[0]~output_o\;
 
-ww_gray(1) <= \gray[1]~output_o\;
+ww_dec(1) <= \dec[1]~output_o\;
 
-ww_gray(2) <= \gray[2]~output_o\;
+ww_dec(2) <= \dec[2]~output_o\;
 
-ww_gray(3) <= \gray[3]~output_o\;
+ww_dec(3) <= \dec[3]~output_o\;
 END structure;
 
 

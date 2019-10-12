@@ -1,5 +1,5 @@
 Analysis & Synthesis report for top
-Tue Oct 08 11:14:31 2019
+Sun Oct 13 10:34:16 2019
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -14,7 +14,7 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. General Register Statistics
-  9. Port Connectivity Checks: "binaryCtr:c"
+  9. Port Connectivity Checks: "binToGray:g"
  10. Post-Synthesis Netlist Statistics for Top Partition
  11. Elapsed Time Per Partition
  12. Analysis & Synthesis Messages
@@ -43,7 +43,7 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Tue Oct 08 11:14:31 2019       ;
+; Analysis & Synthesis Status        ; Successful - Sun Oct 13 10:34:16 2019       ;
 ; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                      ; top                                         ;
 ; Top-level Entity Name              ; top                                         ;
@@ -170,6 +170,7 @@ refer to the applicable agreement for further details.
 ; top.vhd                          ; yes             ; User VHDL File  ; C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/top.vhd       ;         ;
 ; clockDiv.vhd                     ; yes             ; User VHDL File  ; C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/clockDiv.vhd  ;         ;
 ; binaryCtr.vhd                    ; yes             ; User VHDL File  ; C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/binaryCtr.vhd ;         ;
+; binToGray.vhd                    ; yes             ; User VHDL File  ; C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/binToGray.vhd ;         ;
 +----------------------------------+-----------------+-----------------+----------------------------------------------------------------------+---------+
 
 
@@ -230,11 +231,11 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 
 
 +----------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "binaryCtr:c"                                                                        ;
+; Port Connectivity Checks: "binToGray:g"                                                                        ;
 +------+--------+----------+-------------------------------------------------------------------------------------+
 ; Port ; Type   ; Severity ; Details                                                                             ;
 +------+--------+----------+-------------------------------------------------------------------------------------+
-; bval ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; gry  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
 +------+--------+----------+-------------------------------------------------------------------------------------+
 
 
@@ -268,7 +269,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Tue Oct 08 11:14:19 2019
+    Info: Processing started: Sun Oct 13 10:34:06 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off updowncounter -c top
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -279,22 +280,32 @@ Info (12021): Found 2 design units, including 1 entities, in source file clockdi
     Info (12022): Found design unit 1: clockDiv-behav File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/clockDiv.vhd Line: 10
     Info (12023): Found entity 1: clockDiv File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/clockDiv.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file binaryctr.vhd
-    Info (12022): Found design unit 1: binaryCtr-behav File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/binaryCtr.vhd Line: 11
-    Info (12023): Found entity 1: binaryCtr File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/binaryCtr.vhd Line: 4
+    Info (12022): Found design unit 1: binaryCtr-behav File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/binaryCtr.vhd Line: 14
+    Info (12023): Found entity 1: binaryCtr File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/binaryCtr.vhd Line: 7
+Warning (12018): Entity "jkff" will be ignored because it conflicts with Quartus Prime primitive name File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/jkff.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file jkff.vhd
+    Info (12022): Found design unit 1: jkff-behav File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/jkff.vhd Line: 9
+Warning (12018): Entity "tff" will be ignored because it conflicts with Quartus Prime primitive name File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/tffvhd.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file tffvhd.vhd
+    Info (12022): Found design unit 1: tff-behav File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/tffvhd.vhd Line: 9
+Info (12021): Found 2 design units, including 1 entities, in source file bintogray.vhd
+    Info (12022): Found design unit 1: binToGray-behav File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/binToGray.vhd Line: 9
+    Info (12023): Found entity 1: binToGray File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/binToGray.vhd Line: 4
 Info (12127): Elaborating entity "top" for the top level hierarchy
 Warning (10541): VHDL Signal Declaration warning at top.vhd(7): used implicit default value for signal "led" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/top.vhd Line: 7
-Warning (10541): VHDL Signal Declaration warning at top.vhd(8): used implicit default value for signal "gray" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/top.vhd Line: 8
-Warning (10036): Verilog HDL or VHDL warning at top.vhd(14): object "bin" assigned a value but never read File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/top.vhd Line: 14
-Info (12128): Elaborating entity "clockDiv" for hierarchy "clockDiv:f" File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/top.vhd Line: 31
+Warning (10541): VHDL Signal Declaration warning at top.vhd(8): used implicit default value for signal "dec" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/top.vhd Line: 8
+Warning (10036): Verilog HDL or VHDL warning at top.vhd(15): object "gray" assigned a value but never read File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/top.vhd Line: 15
+Info (12128): Elaborating entity "clockDiv" for hierarchy "clockDiv:f" File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/top.vhd Line: 37
 Warning (10492): VHDL Process Statement warning at clockDiv.vhd(19): signal "en" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/clockDiv.vhd Line: 19
-Info (12128): Elaborating entity "binaryCtr" for hierarchy "binaryCtr:c" File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/top.vhd Line: 32
-Warning (10541): VHDL Signal Declaration warning at binaryCtr.vhd(8): used implicit default value for signal "bVal" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/binaryCtr.vhd Line: 8
+Info (12128): Elaborating entity "binaryCtr" for hierarchy "binaryCtr:c" File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/top.vhd Line: 38
+Warning (10492): VHDL Process Statement warning at binaryCtr.vhd(24): signal "mode" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/binaryCtr.vhd Line: 24
+Info (12128): Elaborating entity "binToGray" for hierarchy "binToGray:g" File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/top.vhd Line: 39
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "led" is stuck at GND File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/top.vhd Line: 7
-    Warning (13410): Pin "gray[0]" is stuck at GND File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/top.vhd Line: 8
-    Warning (13410): Pin "gray[1]" is stuck at GND File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/top.vhd Line: 8
-    Warning (13410): Pin "gray[2]" is stuck at GND File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/top.vhd Line: 8
-    Warning (13410): Pin "gray[3]" is stuck at GND File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/top.vhd Line: 8
+    Warning (13410): Pin "dec[0]" is stuck at GND File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/top.vhd Line: 8
+    Warning (13410): Pin "dec[1]" is stuck at GND File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/top.vhd Line: 8
+    Warning (13410): Pin "dec[2]" is stuck at GND File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/top.vhd Line: 8
+    Warning (13410): Pin "dec[3]" is stuck at GND File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/top.vhd Line: 8
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 7 input pin(s) that do not drive logic
@@ -308,10 +319,10 @@ Warning (21074): Design contains 7 input pin(s) that do not drive logic
 Info (21057): Implemented 12 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 7 input pins
     Info (21059): Implemented 5 output pins
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 20 warnings
-    Info: Peak virtual memory: 4790 megabytes
-    Info: Processing ended: Tue Oct 08 11:14:31 2019
-    Info: Elapsed time: 00:00:12
-    Info: Total CPU time (on all processors): 00:00:19
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 22 warnings
+    Info: Peak virtual memory: 4791 megabytes
+    Info: Processing ended: Sun Oct 13 10:34:16 2019
+    Info: Elapsed time: 00:00:10
+    Info: Total CPU time (on all processors): 00:00:21
 
 

@@ -2,15 +2,15 @@
 control[0] => ~NO_FANOUT~
 control[1] => ~NO_FANOUT~
 control[2] => ~NO_FANOUT~
-control[3] => binaryCtr:c.isUp
+control[3] => binaryCtr:c.mode
 control[4] => binaryCtr:c.reset
 control[5] => clockdiv:f.en
 clock => clockdiv:f.clk
 led <= led.DB_MAX_OUTPUT_PORT_TYPE
-gray[0] <= comb.DB_MAX_OUTPUT_PORT_TYPE
-gray[1] <= gray[1].DB_MAX_OUTPUT_PORT_TYPE
-gray[2] <= gray[2].DB_MAX_OUTPUT_PORT_TYPE
-gray[3] <= gray[3].DB_MAX_OUTPUT_PORT_TYPE
+dec[0] <= comb.DB_MAX_OUTPUT_PORT_TYPE
+dec[1] <= dec[1].DB_MAX_OUTPUT_PORT_TYPE
+dec[2] <= dec[2].DB_MAX_OUTPUT_PORT_TYPE
+dec[3] <= dec[3].DB_MAX_OUTPUT_PORT_TYPE
 
 
 |top|clockDiv:f
@@ -70,12 +70,39 @@ slow_clk <= sclk.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |top|binaryCtr:c
-reset => ~NO_FANOUT~
-clock => ~NO_FANOUT~
-isUp => ~NO_FANOUT~
-bVal[0] <= comb.DB_MAX_OUTPUT_PORT_TYPE
-bVal[1] <= bVal[1].DB_MAX_OUTPUT_PORT_TYPE
-bVal[2] <= bVal[2].DB_MAX_OUTPUT_PORT_TYPE
-bVal[3] <= bVal[3].DB_MAX_OUTPUT_PORT_TYPE
+reset => ctr[0].ALOAD
+reset => ctr[1].ALOAD
+reset => ctr[2].ALOAD
+reset => ctr[3].ALOAD
+clock => ctr[0].CLK
+clock => ctr[1].CLK
+clock => ctr[2].CLK
+clock => ctr[3].CLK
+mode => ctr.OUTPUTSELECT
+mode => ctr.OUTPUTSELECT
+mode => ctr.OUTPUTSELECT
+mode => ctr.OUTPUTSELECT
+mode => ctr[3].ADATA
+mode => ctr[2].ADATA
+mode => ctr[1].ADATA
+mode => ctr[0].ADATA
+bVal[0] <= ctr[0].DB_MAX_OUTPUT_PORT_TYPE
+bVal[1] <= ctr[1].DB_MAX_OUTPUT_PORT_TYPE
+bVal[2] <= ctr[2].DB_MAX_OUTPUT_PORT_TYPE
+bVal[3] <= ctr[3].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|binToGray:g
+bin[0] => gry.IN0
+bin[1] => gry.IN1
+bin[1] => gry.IN0
+bin[2] => gry.IN1
+bin[2] => gry.IN0
+bin[3] => gry.IN1
+bin[3] => gry[3].DATAIN
+gry[0] <= gry.DB_MAX_OUTPUT_PORT_TYPE
+gry[1] <= gry.DB_MAX_OUTPUT_PORT_TYPE
+gry[2] <= gry.DB_MAX_OUTPUT_PORT_TYPE
+gry[3] <= bin[3].DB_MAX_OUTPUT_PORT_TYPE
 
 
