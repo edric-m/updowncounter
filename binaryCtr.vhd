@@ -22,9 +22,9 @@ begin
 	if reset = '1' then
 	
 		if mode = '1' then 
-			ctr <= "000000"; --reset value count up mode
+			ctr <= "001110"; --reset value count up mode 9d
 		else
-			ctr <= "111111"; --reset value count down mode
+			ctr <= "111010"; --reset value count down mode 39d
 		end if;
 	
 	elsif clk'event and clk='0' then

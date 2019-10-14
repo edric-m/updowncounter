@@ -1,5 +1,5 @@
 Analysis & Synthesis report for top
-Mon Oct 14 16:28:12 2019
+Mon Oct 14 18:08:21 2019
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -46,16 +46,16 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon Oct 14 16:28:12 2019       ;
+; Analysis & Synthesis Status        ; Successful - Mon Oct 14 18:08:21 2019       ;
 ; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                      ; top                                         ;
 ; Top-level Entity Name              ; top                                         ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 81                                          ;
-;     Total combinational functions  ; 80                                          ;
-;     Dedicated logic registers      ; 39                                          ;
-; Total registers                    ; 39                                          ;
-; Total pins                         ; 17                                          ;
+; Total logic elements               ; 110                                         ;
+;     Total combinational functions  ; 109                                         ;
+;     Dedicated logic registers      ; 57                                          ;
+; Total registers                    ; 57                                          ;
+; Total pins                         ; 19                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
@@ -162,8 +162,7 @@ refer to the applicable agreement for further details.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.0%      ;
-;     Processors 3-4         ;   0.0%      ;
+;     Processors 2-4         ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -187,45 +186,44 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+-------------+
 ; Resource                                    ; Usage       ;
 +---------------------------------------------+-------------+
-; Estimated Total logic elements              ; 81          ;
+; Estimated Total logic elements              ; 110         ;
 ;                                             ;             ;
-; Total combinational functions               ; 80          ;
+; Total combinational functions               ; 109         ;
 ; Logic element usage by number of LUT inputs ;             ;
-;     -- 4 input functions                    ; 32          ;
-;     -- 3 input functions                    ; 22          ;
-;     -- <=2 input functions                  ; 26          ;
+;     -- 4 input functions                    ; 38          ;
+;     -- 3 input functions                    ; 28          ;
+;     -- <=2 input functions                  ; 43          ;
 ;                                             ;             ;
 ; Logic elements by mode                      ;             ;
-;     -- normal mode                          ; 56          ;
-;     -- arithmetic mode                      ; 24          ;
+;     -- normal mode                          ; 69          ;
+;     -- arithmetic mode                      ; 40          ;
 ;                                             ;             ;
-; Total registers                             ; 39          ;
-;     -- Dedicated logic registers            ; 39          ;
+; Total registers                             ; 57          ;
+;     -- Dedicated logic registers            ; 57          ;
 ;     -- I/O registers                        ; 0           ;
 ;                                             ;             ;
-; I/O pins                                    ; 17          ;
+; I/O pins                                    ; 19          ;
 ;                                             ;             ;
 ; Embedded Multiplier 9-bit elements          ; 0           ;
 ;                                             ;             ;
 ; Maximum fan-out node                        ; clock~input ;
-; Maximum fan-out                             ; 33          ;
-; Total fan-out                               ; 347         ;
-; Average fan-out                             ; 2.27        ;
+; Maximum fan-out                             ; 44          ;
+; Total fan-out                               ; 460         ;
+; Average fan-out                             ; 2.25        ;
 +---------------------------------------------+-------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                        ;
-+----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------+--------------+--------------+
-; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name  ; Entity Name  ; Library Name ;
-+----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------+--------------+--------------+
-; |top                       ; 80 (0)              ; 39 (0)                    ; 0           ; 0            ; 0       ; 0         ; 17   ; 0            ; |top                 ; top          ; work         ;
-;    |binaryCtr:c|           ; 8 (8)               ; 6 (6)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|binaryCtr:c     ; binaryCtr    ; work         ;
-;    |clockDiv:f|            ; 46 (46)             ; 26 (26)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|clockDiv:f      ; clockDiv     ; work         ;
-;    |digitToDisp:dd|        ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|digitToDisp:dd  ; digitToDisp  ; work         ;
-;    |grayToDigits:gd|       ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|grayToDigits:gd ; grayToDigits ; work         ;
-;    |selector:s|            ; 16 (16)             ; 7 (7)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|selector:s      ; selector     ; work         ;
-+----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------+--------------+--------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                      ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
+; |top                       ; 109 (0)             ; 57 (0)                    ; 0           ; 0            ; 0       ; 0         ; 19   ; 0            ; |top                ; top         ; work         ;
+;    |binaryCtr:c|           ; 8 (8)               ; 6 (6)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|binaryCtr:c    ; binaryCtr   ; work         ;
+;    |clockDiv:f|            ; 46 (46)             ; 26 (26)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|clockDiv:f     ; clockDiv    ; work         ;
+;    |digitToDisp:dd|        ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|digitToDisp:dd ; digitToDisp ; work         ;
+;    |selector:s|            ; 48 (48)             ; 25 (25)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|selector:s     ; selector    ; work         ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -241,14 +239,15 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
 
 
-+--------------------------------------------------------------------+
-; Registers Removed During Synthesis                                 ;
-+---------------------------------------+----------------------------+
-; Register name                         ; Reason for Removal         ;
-+---------------------------------------+----------------------------+
-; clockDiv:f|ctr[0]                     ; Merged with selector:s|ctr ;
-; Total Number of Removed Registers = 1 ;                            ;
-+---------------------------------------+----------------------------+
++--------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                             ;
++---------------------------------------+----------------------------------------+
+; Register name                         ; Reason for Removal                     ;
++---------------------------------------+----------------------------------------+
+; selector:s|di[2,3]                    ; Stuck at VCC due to stuck port data_in ;
+; clockDiv:f|ctr[0]                     ; Merged with selector:s|cctr[0]         ;
+; Total Number of Removed Registers = 3 ;                                        ;
++---------------------------------------+----------------------------------------+
 
 
 +------------------------------------------------------+
@@ -256,7 +255,7 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 39    ;
+; Total registers                              ; 57    ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
@@ -290,21 +289,21 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 17                          ;
-; cycloneiii_ff         ; 39                          ;
-;     plain             ; 39                          ;
-; cycloneiii_lcell_comb ; 87                          ;
-;     arith             ; 24                          ;
-;         2 data inputs ; 23                          ;
+; boundary_port         ; 19                          ;
+; cycloneiii_ff         ; 57                          ;
+;     plain             ; 57                          ;
+; cycloneiii_lcell_comb ; 112                         ;
+;     arith             ; 40                          ;
+;         2 data inputs ; 39                          ;
 ;         3 data inputs ; 1                           ;
-;     normal            ; 63                          ;
-;         0 data inputs ; 1                           ;
-;         1 data inputs ; 9                           ;
-;         3 data inputs ; 21                          ;
-;         4 data inputs ; 32                          ;
+;     normal            ; 72                          ;
+;         0 data inputs ; 2                           ;
+;         1 data inputs ; 5                           ;
+;         3 data inputs ; 27                          ;
+;         4 data inputs ; 38                          ;
 ;                       ;                             ;
 ; Max LUT depth         ; 4.40                        ;
-; Average LUT depth     ; 3.00                        ;
+; Average LUT depth     ; 2.96                        ;
 +-----------------------+-----------------------------+
 
 
@@ -323,7 +322,7 @@ Note: All latches listed above may not be present at the end of synthesis due to
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Mon Oct 14 16:28:02 2019
+    Info: Processing started: Mon Oct 14 18:08:12 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off updowncounter -c top
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -426,14 +425,16 @@ Info (10041): Inferred latch for "disp2[3]" at grayToDigits.vhd(20) File: C:/Use
 Info (10041): Inferred latch for "disp1[0]" at grayToDigits.vhd(20) File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/grayToDigits.vhd Line: 20
 Info (10041): Inferred latch for "disp1[1]" at grayToDigits.vhd(20) File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/grayToDigits.vhd Line: 20
 Info (10041): Inferred latch for "disp1[2]" at grayToDigits.vhd(20) File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/grayToDigits.vhd Line: 20
-Info (12128): Elaborating entity "selector" for hierarchy "selector:s" File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/top.vhd Line: 72
-Info (12128): Elaborating entity "digitToDisp" for hierarchy "digitToDisp:dd" File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/top.vhd Line: 73
+Info (12128): Elaborating entity "digitToDisp" for hierarchy "digitToDisp:dd" File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/top.vhd Line: 64
+Info (12128): Elaborating entity "selector" for hierarchy "selector:s" File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/top.vhd Line: 65
 Warning (14026): LATCH primitive "grayToDigits:gd|disp2[1]" is permanently enabled File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/grayToDigits.vhd Line: 20
 Warning (14026): LATCH primitive "grayToDigits:gd|disp2[2]" is permanently enabled File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/grayToDigits.vhd Line: 20
 Warning (14026): LATCH primitive "grayToDigits:gd|disp2[3]" is permanently enabled File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/grayToDigits.vhd Line: 20
 Warning (14026): LATCH primitive "grayToDigits:gd|disp1[0]" is permanently enabled File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/grayToDigits.vhd Line: 20
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "led" is stuck at GND File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/top.vhd Line: 7
+    Warning (13410): Pin "seg[2]" is stuck at VCC File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/top.vhd Line: 9
+    Warning (13410): Pin "seg[3]" is stuck at VCC File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/top.vhd Line: 9
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
@@ -444,14 +445,14 @@ Warning (21074): Design contains 6 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "control[3]" File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/top.vhd Line: 5
     Warning (15610): No output dependent on input pin "control[4]" File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/top.vhd Line: 5
     Warning (15610): No output dependent on input pin "control[5]" File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/top.vhd Line: 5
-Info (21057): Implemented 99 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 130 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 7 input pins
-    Info (21059): Implemented 10 output pins
-    Info (21061): Implemented 82 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 77 warnings
-    Info: Peak virtual memory: 4795 megabytes
-    Info: Processing ended: Mon Oct 14 16:28:12 2019
-    Info: Elapsed time: 00:00:10
-    Info: Total CPU time (on all processors): 00:00:22
+    Info (21059): Implemented 12 output pins
+    Info (21061): Implemented 111 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 79 warnings
+    Info: Peak virtual memory: 4797 megabytes
+    Info: Processing ended: Mon Oct 14 18:08:21 2019
+    Info: Elapsed time: 00:00:09
+    Info: Total CPU time (on all processors): 00:00:21
 
 

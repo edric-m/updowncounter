@@ -6,7 +6,7 @@ entity top is
 			clock : in std_logic;
 			led : out std_logic;
 			dec : out std_logic_vector(6 downto 0);
-			seg : out std_logic_vector(1 downto 0));
+			seg : out std_logic_vector(3 downto 0));
 end top;
 
 architecture behav of top is
@@ -51,7 +51,7 @@ component selector is
 	port (clk : in std_logic;
 			d1, d2 : in std_logic_vector(3 downto 0);
 			o : out std_logic_vector(3 downto 0);
-			di : out std_logic_vector(1 downto 0));
+			di : out std_logic_vector(3 downto 0));
 end component;
 
 begin
@@ -61,16 +61,10 @@ f : clockDiv port map (clk => clock, en => '1', slow_clk => sclk);
 c : binaryCtr port map (reset => '0', clk => sclk, mode => '1', bVal => cbin);
 g : binToGray port map (bin => cbin, gry => gray);
 gd : grayToDigits port map (g => gray, disp1 => dd1, disp2 => dd2);
---dec(5) <= gray(5);
---dec(4) <= gray(4);
---dec(3) <= dd1(3);
---dec(2) <= dd1(2);
---dec(1) <= dd1(1);
---dec(0) <= dd1(0);
-
-
-s : selector port map (clk => clock, d1 => dd1, d2 => dd2, o => so, di => seg);
 dd : digitToDisp port map (d => so, disp => dec);
+s : selector port map (clk => clock, d1 => dd1, d2 => dd2, o => so, di => seg);
+
+--seg <= "10";
 --to make an impulse set signal, then use the boards clock to reset the signal
 
 end behav;

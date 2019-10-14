@@ -7,16 +7,18 @@ control[4] => ~NO_FANOUT~
 control[5] => ~NO_FANOUT~
 clock => clockdiv:f.clk
 clock => selector:s.clk
-led << comb.DB_MAX_OUTPUT_PORT_TYPE
-dec[0] << digitToDisp:dd.disp[0]
-dec[1] << digitToDisp:dd.disp[1]
-dec[2] << digitToDisp:dd.disp[2]
-dec[3] << digitToDisp:dd.disp[3]
-dec[4] << digitToDisp:dd.disp[4]
-dec[5] << digitToDisp:dd.disp[5]
-dec[6] << digitToDisp:dd.disp[6]
-seg[0] << selector:s.di[0]
-seg[1] << selector:s.di[1]
+led <= comb.DB_MAX_OUTPUT_PORT_TYPE
+dec[0] <= digitToDisp:dd.disp[0]
+dec[1] <= digitToDisp:dd.disp[1]
+dec[2] <= digitToDisp:dd.disp[2]
+dec[3] <= digitToDisp:dd.disp[3]
+dec[4] <= digitToDisp:dd.disp[4]
+dec[5] <= digitToDisp:dd.disp[5]
+dec[6] <= digitToDisp:dd.disp[6]
+seg[0] <= selector:s.di[0]
+seg[1] <= selector:s.di[1]
+seg[2] <= selector:s.di[2]
+seg[3] <= selector:s.di[3]
 
 
 |top|clockDiv:f
@@ -78,10 +80,10 @@ slow_clk <= sclk.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |top|binaryCtr:c
-reset => ctr[0].ALOAD
-reset => ctr[1].ALOAD
+reset => ctr[0].ACLR
+reset => ctr[1].PRESET
 reset => ctr[2].ALOAD
-reset => ctr[3].ALOAD
+reset => ctr[3].PRESET
 reset => ctr[4].ALOAD
 reset => ctr[5].ALOAD
 clk => ctr[0].CLK
@@ -96,12 +98,9 @@ mode => ctr.OUTPUTSELECT
 mode => ctr.OUTPUTSELECT
 mode => ctr.OUTPUTSELECT
 mode => ctr.OUTPUTSELECT
+mode => ctr[2].ADATA
 mode => ctr[5].ADATA
 mode => ctr[4].ADATA
-mode => ctr[3].ADATA
-mode => ctr[2].ADATA
-mode => ctr[1].ADATA
-mode => ctr[0].ADATA
 bVal[0] <= ctr[0].DB_MAX_OUTPUT_PORT_TYPE
 bVal[1] <= ctr[1].DB_MAX_OUTPUT_PORT_TYPE
 bVal[2] <= ctr[2].DB_MAX_OUTPUT_PORT_TYPE
@@ -183,30 +182,6 @@ disp2[2] <= disp2[2]$latch.DB_MAX_OUTPUT_PORT_TYPE
 disp2[3] <= disp2[3]$latch.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|top|selector:s
-clk => ctr.CLK
-clk => di[0]~reg0.CLK
-clk => di[1]~reg0.CLK
-clk => o[0]~reg0.CLK
-clk => o[1]~reg0.CLK
-clk => o[2]~reg0.CLK
-clk => o[3]~reg0.CLK
-d1[0] => o.DATAB
-d1[1] => o.DATAB
-d1[2] => o.DATAB
-d1[3] => o.DATAB
-d2[0] => o.DATAA
-d2[1] => o.DATAA
-d2[2] => o.DATAA
-d2[3] => o.DATAA
-o[0] <= o[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-o[1] <= o[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-o[2] <= o[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-o[3] <= o[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-di[0] <= di[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-di[1] <= di[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
-
-
 |top|digitToDisp:dd
 d[0] => Mux0.IN19
 d[0] => Mux1.IN19
@@ -243,5 +218,42 @@ disp[3] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
 disp[4] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
 disp[5] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
 disp[6] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top|selector:s
+clk => sclk.CLK
+clk => cctr[0].CLK
+clk => cctr[1].CLK
+clk => cctr[2].CLK
+clk => cctr[3].CLK
+clk => cctr[4].CLK
+clk => cctr[5].CLK
+clk => cctr[6].CLK
+clk => cctr[7].CLK
+clk => cctr[8].CLK
+clk => cctr[9].CLK
+clk => cctr[10].CLK
+clk => cctr[11].CLK
+clk => cctr[12].CLK
+clk => cctr[13].CLK
+clk => cctr[14].CLK
+clk => cctr[15].CLK
+clk => cctr[16].CLK
+d1[0] => o.DATAB
+d1[1] => o.DATAB
+d1[2] => o.DATAB
+d1[3] => o.DATAB
+d2[0] => o.DATAA
+d2[1] => o.DATAA
+d2[2] => o.DATAA
+d2[3] => o.DATAA
+o[0] <= o[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+o[1] <= o[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+o[2] <= o[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+o[3] <= o[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+di[0] <= di[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+di[1] <= di[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+di[2] <= di[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+di[3] <= di[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
