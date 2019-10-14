@@ -42,6 +42,18 @@
 				{
 					"name" : "clock",
 					"strict" : false
+				},
+				{
+					"name" : "control[2]",
+					"strict" : false
+				},
+				{
+					"name" : "control[1]",
+					"strict" : false
+				},
+				{
+					"name" : "control[0]",
+					"strict" : false
 				}
 			]
 		}

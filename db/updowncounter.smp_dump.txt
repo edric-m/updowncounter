@@ -1,0 +1,6 @@
+
+State Machine - |top|controller:ct|state
+Name state.count_down state.count_up state.stop 
+state.stop 0 0 0 
+state.count_up 0 1 1 
+state.count_down 1 0 1 

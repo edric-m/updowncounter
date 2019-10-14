@@ -1,10 +1,9 @@
 |top
-control[0] => ~NO_FANOUT~
-control[1] => ~NO_FANOUT~
-control[2] => ~NO_FANOUT~
-control[3] => ~NO_FANOUT~
-control[4] => ~NO_FANOUT~
-control[5] => ~NO_FANOUT~
+control[0] => controller:ct.dip[0]
+control[1] => controller:ct.dip[1]
+control[2] => controller:ct.dip[2]
+control[3] => controller:ct.dip[3]
+clock => controller:ct.clk
 clock => clockdiv:f.clk
 clock => selector:s.clk
 led <= comb.DB_MAX_OUTPUT_PORT_TYPE
@@ -19,6 +18,30 @@ seg[0] <= selector:s.di[0]
 seg[1] <= selector:s.di[1]
 seg[2] <= selector:s.di[2]
 seg[3] <= selector:s.di[3]
+
+
+|top|controller:ct
+clk => ctlBus[0]~reg0.CLK
+clk => ctlBus[1]~reg0.CLK
+clk => ctlBus[2]~reg0.CLK
+clk => state~1.DATAIN
+dip[0] => mode.CLK
+dip[1] => state.OUTPUTSELECT
+dip[1] => ctlBus.OUTPUTSELECT
+dip[1] => ctlBus.DATAA
+dip[1] => state.OUTPUTSELECT
+dip[1] => ctlBus.OUTPUTSELECT
+dip[1] => ctlBus.DATAB
+dip[1] => Selector0.IN1
+dip[1] => Selector0.IN0
+dip[2] => ctlBus[0]~reg0.ALOAD
+dip[2] => ctlBus[1]~reg0.ACLR
+dip[2] => ctlBus[2]~reg0.PRESET
+dip[2] => state~3.DATAIN
+dip[3] => ~NO_FANOUT~
+ctlBus[0] <= ctlBus[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+ctlBus[1] <= ctlBus[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+ctlBus[2] <= ctlBus[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |top|clockDiv:f

@@ -3,32 +3,80 @@ Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow 1200mV 85C Model Setup 'clock'
-Slack : -4.600
-TNS   : -95.015
-
-Type  : Slow 1200mV 85C Model Setup 'selector:s|sclk'
-Slack : -1.921
-TNS   : -7.311
+Slack : -4.741
+TNS   : -107.303
 
 Type  : Slow 1200mV 85C Model Setup 'clockDiv:f|sclk'
-Slack : -1.401
-TNS   : -6.485
+Slack : -4.144
+TNS   : -23.521
 
-Type  : Slow 1200mV 85C Model Hold 'clockDiv:f|sclk'
-Slack : 0.454
+Type  : Slow 1200mV 85C Model Setup 'controller:ct|ctlBus[2]'
+Slack : -4.036
+TNS   : -7.873
+
+Type  : Slow 1200mV 85C Model Setup 'selector:s|sclk'
+Slack : -3.695
+TNS   : -14.458
+
+Type  : Slow 1200mV 85C Model Setup 'control[2]'
+Slack : -1.998
+TNS   : -1.998
+
+Type  : Slow 1200mV 85C Model Setup 'control[0]'
+Slack : 0.114
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'clock'
-Slack : 0.465
+Slack : 0.447
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'selector:s|sclk'
-Slack : 0.466
+Slack : 0.467
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'control[0]'
+Slack : 0.497
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'clockDiv:f|sclk'
+Slack : 0.790
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'control[2]'
+Slack : 1.553
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'controller:ct|ctlBus[2]'
+Slack : 1.667
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Recovery 'clock'
+Slack : -1.572
+TNS   : -4.658
+
+Type  : Slow 1200mV 85C Model Recovery 'clockDiv:f|sclk'
+Slack : 0.065
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Removal 'clockDiv:f|sclk'
+Slack : -0.167
+TNS   : -1.002
+
+Type  : Slow 1200mV 85C Model Removal 'clock'
+Slack : 1.836
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clock'
 Slack : -3.000
-TNS   : -68.428
+TNS   : -74.376
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'control[0]'
+Slack : -3.000
+TNS   : -4.487
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'control[2]'
+Slack : -3.000
+TNS   : -3.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'selector:s|sclk'
 Slack : -1.487
@@ -38,33 +86,85 @@ Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clockDiv:f|sclk'
 Slack : -1.487
 TNS   : -8.922
 
-Type  : Slow 1200mV 0C Model Setup 'clock'
-Slack : -4.325
-TNS   : -82.817
-
-Type  : Slow 1200mV 0C Model Setup 'selector:s|sclk'
-Slack : -1.638
-TNS   : -6.171
-
-Type  : Slow 1200mV 0C Model Setup 'clockDiv:f|sclk'
-Slack : -1.179
-TNS   : -5.272
-
-Type  : Slow 1200mV 0C Model Hold 'clockDiv:f|sclk'
-Slack : 0.403
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'controller:ct|ctlBus[2]'
+Slack : 0.461
 TNS   : 0.000
 
-Type  : Slow 1200mV 0C Model Hold 'selector:s|sclk'
-Slack : 0.418
+Type  : Slow 1200mV 0C Model Setup 'clock'
+Slack : -4.451
+TNS   : -95.462
+
+Type  : Slow 1200mV 0C Model Setup 'clockDiv:f|sclk'
+Slack : -3.929
+TNS   : -22.429
+
+Type  : Slow 1200mV 0C Model Setup 'controller:ct|ctlBus[2]'
+Slack : -3.804
+TNS   : -7.435
+
+Type  : Slow 1200mV 0C Model Setup 'selector:s|sclk'
+Slack : -3.452
+TNS   : -13.531
+
+Type  : Slow 1200mV 0C Model Setup 'control[2]'
+Slack : -1.851
+TNS   : -1.851
+
+Type  : Slow 1200mV 0C Model Setup 'control[0]'
+Slack : 0.210
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'clock'
-Slack : 0.420
+Slack : 0.402
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'selector:s|sclk'
+Slack : 0.419
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'control[0]'
+Slack : 0.447
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'clockDiv:f|sclk'
+Slack : 0.738
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'controller:ct|ctlBus[2]'
+Slack : 1.446
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'control[2]'
+Slack : 1.529
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Recovery 'clock'
+Slack : -1.426
+TNS   : -4.235
+
+Type  : Slow 1200mV 0C Model Recovery 'clockDiv:f|sclk'
+Slack : 0.040
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Removal 'clockDiv:f|sclk'
+Slack : -0.157
+TNS   : -0.939
+
+Type  : Slow 1200mV 0C Model Removal 'clock'
+Slack : 1.848
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clock'
 Slack : -3.000
-TNS   : -68.428
+TNS   : -74.376
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'control[0]'
+Slack : -3.000
+TNS   : -4.487
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'control[2]'
+Slack : -3.000
+TNS   : -3.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'selector:s|sclk'
 Slack : -1.487
@@ -74,33 +174,85 @@ Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clockDiv:f|sclk'
 Slack : -1.487
 TNS   : -8.922
 
-Type  : Fast 1200mV 0C Model Setup 'clock'
-Slack : -1.521
-TNS   : -17.624
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'controller:ct|ctlBus[2]'
+Slack : 0.373
+TNS   : 0.000
 
-Type  : Fast 1200mV 0C Model Setup 'selector:s|sclk'
-Slack : -0.288
-TNS   : -0.734
+Type  : Fast 1200mV 0C Model Setup 'controller:ct|ctlBus[2]'
+Slack : -1.907
+TNS   : -3.699
+
+Type  : Fast 1200mV 0C Model Setup 'clock'
+Slack : -1.782
+TNS   : -23.370
 
 Type  : Fast 1200mV 0C Model Setup 'clockDiv:f|sclk'
-Slack : -0.066
-TNS   : -0.130
+Slack : -1.409
+TNS   : -7.957
 
-Type  : Fast 1200mV 0C Model Hold 'clockDiv:f|sclk'
-Slack : 0.184
+Type  : Fast 1200mV 0C Model Setup 'selector:s|sclk'
+Slack : -1.278
+TNS   : -4.732
+
+Type  : Fast 1200mV 0C Model Setup 'control[2]'
+Slack : -0.879
+TNS   : -0.879
+
+Type  : Fast 1200mV 0C Model Setup 'control[0]'
+Slack : 0.624
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'clock'
-Slack : 0.191
+Slack : 0.182
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'selector:s|sclk'
-Slack : 0.191
+Slack : 0.192
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'control[0]'
+Slack : 0.206
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'clockDiv:f|sclk'
+Slack : 0.317
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'controller:ct|ctlBus[2]'
+Slack : 0.822
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'control[2]'
+Slack : 1.218
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Recovery 'clock'
+Slack : -0.197
+TNS   : -0.547
+
+Type  : Fast 1200mV 0C Model Recovery 'clockDiv:f|sclk'
+Slack : 0.385
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Removal 'clockDiv:f|sclk'
+Slack : -0.073
+TNS   : -0.432
+
+Type  : Fast 1200mV 0C Model Removal 'clock'
+Slack : 0.615
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clock'
 Slack : -3.000
-TNS   : -51.647
+TNS   : -56.134
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'control[0]'
+Slack : -3.000
+TNS   : -4.058
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'control[2]'
+Slack : -3.000
+TNS   : -3.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'selector:s|sclk'
 Slack : -1.000
@@ -109,5 +261,9 @@ TNS   : -7.000
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clockDiv:f|sclk'
 Slack : -1.000
 TNS   : -6.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'controller:ct|ctlBus[2]'
+Slack : 0.380
+TNS   : 0.000
 
 ------------------------------------------------------------

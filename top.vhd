@@ -2,7 +2,7 @@ library ieee;
 use ieee.std_logic_1164.all;
 
 entity top is
-	port (control : in std_logic_vector(5 downto 0);
+	port (control : in std_logic_vector(3 downto 0);
 			clock : in std_logic;
 			led : out std_logic;
 			dec : out std_logic_vector(6 downto 0);
@@ -16,6 +16,8 @@ signal cbin : std_logic_vector(5 downto 0);
 signal gray : std_logic_vector(5 downto 0);
 signal dd1, dd2 : std_logic_vector(3 downto 0);
 signal so : std_logic_vector(3 downto 0);
+
+signal cbus : std_logic_vector(2 downto 0);
 --signal seg : std_logic_vector(1 downto 0);
 
 component clockdiv
@@ -54,11 +56,22 @@ component selector is
 			di : out std_logic_vector(3 downto 0));
 end component;
 
+component controller is
+	port (clk : in std_logic;
+			dip : in std_logic_vector(3 downto 0);
+			ctlBus : out std_logic_vector(2 downto 0));
+end component;
+
 begin
 
+--unchecked
+ct : controller port map (clk => clock, dip => control, ctlBus => cbus);
+
+		--issue: stop does not work sometimes
+
 --checked
-f : clockDiv port map (clk => clock, en => '1', slow_clk => sclk); 
-c : binaryCtr port map (reset => '0', clk => sclk, mode => '1', bVal => cbin);
+f : clockDiv port map (clk => clock, en => cbus(1), slow_clk => sclk); 
+c : binaryCtr port map (reset => cbus(2), clk => sclk, mode => cbus(0), bVal => cbin);
 g : binToGray port map (bin => cbin, gry => gray);
 gd : grayToDigits port map (g => gray, disp1 => dd1, disp2 => dd2);
 dd : digitToDisp port map (d => so, disp => dec);
