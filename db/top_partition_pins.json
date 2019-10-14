@@ -4,6 +4,10 @@
 			"name" : "Top",
 			"pins" : [
 				{
+					"name" : "led",
+					"strict" : false
+				},
+				{
 					"name" : "dec[0]",
 					"strict" : false
 				},
@@ -40,19 +44,19 @@
 					"strict" : false
 				},
 				{
-					"name" : "clock",
-					"strict" : false
-				},
-				{
 					"name" : "control[2]",
 					"strict" : false
 				},
 				{
-					"name" : "control[1]",
+					"name" : "clock",
 					"strict" : false
 				},
 				{
 					"name" : "control[0]",
+					"strict" : false
+				},
+				{
+					"name" : "control[1]",
 					"strict" : false
 				}
 			]

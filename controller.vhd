@@ -29,7 +29,7 @@ begin
 	
 		case state is
 			when stop => 
-				if dip(1) = '1' then 
+				if stp = '1' then 
 					state <= stop;
 					ctlBus <= "000";
 				else
@@ -42,7 +42,7 @@ begin
 					end if;
 				end if;
 			when count_up => 
-				if dip(1) = '0' then
+				if stp = '1' then
 					state <= stop;
 					ctlBus <= "000";
 				else
@@ -55,7 +55,7 @@ begin
 					end if; 
 				end if;
 			when count_down => 
-				if dip(1) = '0' then
+				if stp = '1' then
 					state <= stop;
 					ctlBus <= "000";
 				else
@@ -78,6 +78,17 @@ begin
 	if dip(0)'event and dip(0) = '0' then
 	
 		mode <= not mode;
+	
+	end if;
+
+end process;
+
+process(dip(1))
+begin
+
+	if dip(1)'event and dip(1) = '0' then
+	
+		stp <= not stp;
 	
 	end if;
 

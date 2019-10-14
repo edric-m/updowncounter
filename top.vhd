@@ -30,7 +30,8 @@ component binaryCtr
 	port (reset : in std_logic;
 			clk : in std_logic;
 			mode : in std_logic;
-			bVal : out std_logic_vector(5 downto 0));
+			bVal : out std_logic_vector(5 downto 0);
+			oled : out std_logic);
 end component;
 
 component binToGray is
@@ -71,7 +72,7 @@ ct : controller port map (clk => clock, dip => control, ctlBus => cbus);
 
 --checked
 f : clockDiv port map (clk => clock, en => cbus(1), slow_clk => sclk); 
-c : binaryCtr port map (reset => cbus(2), clk => sclk, mode => cbus(0), bVal => cbin);
+c : binaryCtr port map (reset => cbus(2), clk => sclk, mode => cbus(0), bVal => cbin, oled => led);
 g : binToGray port map (bin => cbin, gry => gray);
 gd : grayToDigits port map (g => gray, disp1 => dd1, disp2 => dd2);
 dd : digitToDisp port map (d => so, disp => dec);

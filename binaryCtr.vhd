@@ -8,7 +8,8 @@ entity binaryCtr is
 	port (reset : in std_logic;
 			clk : in std_logic;
 			mode : in std_logic;
-			bVal : out std_logic_vector(5 downto 0));
+			bVal : out std_logic_vector(5 downto 0);
+			oled : out std_logic);
 end binaryCtr;
 
 architecture behav of binaryCtr is
@@ -35,13 +36,20 @@ begin
 			
 				ctr <= ctr + 1;
 				
+				oled <= '1';
+				
 			--else output stop counter
+			else
+				oled <= '0';
 				
 			end if;
 		else
 			if ctr /= "000000" then
 				ctr <= ctr - 1;
+				oled <= '1';
 			--else output stop counter
+			else 
+				oled <= '0';
 			end if;
 		end if;
 		

@@ -6,18 +6,18 @@ control[3] => controller:ct.dip[3]
 clock => controller:ct.clk
 clock => clockdiv:f.clk
 clock => selector:s.clk
-led <= comb.DB_MAX_OUTPUT_PORT_TYPE
-dec[0] <= digitToDisp:dd.disp[0]
-dec[1] <= digitToDisp:dd.disp[1]
-dec[2] <= digitToDisp:dd.disp[2]
-dec[3] <= digitToDisp:dd.disp[3]
-dec[4] <= digitToDisp:dd.disp[4]
-dec[5] <= digitToDisp:dd.disp[5]
-dec[6] <= digitToDisp:dd.disp[6]
-seg[0] <= selector:s.di[0]
-seg[1] <= selector:s.di[1]
-seg[2] <= selector:s.di[2]
-seg[3] <= selector:s.di[3]
+led << binaryCtr:c.oled
+dec[0] << digitToDisp:dd.disp[0]
+dec[1] << digitToDisp:dd.disp[1]
+dec[2] << digitToDisp:dd.disp[2]
+dec[3] << digitToDisp:dd.disp[3]
+dec[4] << digitToDisp:dd.disp[4]
+dec[5] << digitToDisp:dd.disp[5]
+dec[6] << digitToDisp:dd.disp[6]
+seg[0] << selector:s.di[0]
+seg[1] << selector:s.di[1]
+seg[2] << selector:s.di[2]
+seg[3] << selector:s.di[3]
 
 
 |top|controller:ct
@@ -26,14 +26,7 @@ clk => ctlBus[1]~reg0.CLK
 clk => ctlBus[2]~reg0.CLK
 clk => state~1.DATAIN
 dip[0] => mode.CLK
-dip[1] => state.OUTPUTSELECT
-dip[1] => ctlBus.OUTPUTSELECT
-dip[1] => ctlBus.DATAA
-dip[1] => state.OUTPUTSELECT
-dip[1] => ctlBus.OUTPUTSELECT
-dip[1] => ctlBus.DATAB
-dip[1] => Selector0.IN1
-dip[1] => Selector0.IN0
+dip[1] => stp.CLK
 dip[2] => ctlBus[0]~reg0.ALOAD
 dip[2] => ctlBus[1]~reg0.ACLR
 dip[2] => ctlBus[2]~reg0.PRESET
@@ -109,6 +102,8 @@ reset => ctr[2].ALOAD
 reset => ctr[3].PRESET
 reset => ctr[4].ALOAD
 reset => ctr[5].ALOAD
+reset => oled~reg0.ENA
+clk => oled~reg0.CLK
 clk => ctr[0].CLK
 clk => ctr[1].CLK
 clk => ctr[2].CLK
@@ -121,6 +116,7 @@ mode => ctr.OUTPUTSELECT
 mode => ctr.OUTPUTSELECT
 mode => ctr.OUTPUTSELECT
 mode => ctr.OUTPUTSELECT
+mode => oled.OUTPUTSELECT
 mode => ctr[2].ADATA
 mode => ctr[5].ADATA
 mode => ctr[4].ADATA
@@ -130,6 +126,7 @@ bVal[2] <= ctr[2].DB_MAX_OUTPUT_PORT_TYPE
 bVal[3] <= ctr[3].DB_MAX_OUTPUT_PORT_TYPE
 bVal[4] <= ctr[4].DB_MAX_OUTPUT_PORT_TYPE
 bVal[5] <= ctr[5].DB_MAX_OUTPUT_PORT_TYPE
+oled <= oled~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |top|binToGray:g
