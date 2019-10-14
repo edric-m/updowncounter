@@ -1,5 +1,5 @@
 Analysis & Synthesis report for top
-Sun Oct 13 10:34:16 2019
+Mon Oct 14 11:54:35 2019
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -13,11 +13,12 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. General Register Statistics
-  9. Port Connectivity Checks: "binToGray:g"
- 10. Post-Synthesis Netlist Statistics for Top Partition
- 11. Elapsed Time Per Partition
- 12. Analysis & Synthesis Messages
+  8. User-Specified and Inferred Latches
+  9. General Register Statistics
+ 10. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 11. Post-Synthesis Netlist Statistics for Top Partition
+ 12. Elapsed Time Per Partition
+ 13. Analysis & Synthesis Messages
 
 
 
@@ -43,16 +44,16 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sun Oct 13 10:34:16 2019       ;
+; Analysis & Synthesis Status        ; Successful - Mon Oct 14 11:54:35 2019       ;
 ; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                      ; top                                         ;
 ; Top-level Entity Name              ; top                                         ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 0                                           ;
-;     Total combinational functions  ; 0                                           ;
-;     Dedicated logic registers      ; 0                                           ;
-; Total registers                    ; 0                                           ;
-; Total pins                         ; 12                                          ;
+; Total logic elements               ; 94                                          ;
+;     Total combinational functions  ; 93                                          ;
+;     Dedicated logic registers      ; 39                                          ;
+; Total registers                    ; 39                                          ;
+; Total pins                         ; 17                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
@@ -155,54 +156,60 @@ refer to the applicable agreement for further details.
 ; Maximum allowed            ; 4           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
+; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processors 3-4         ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                ;
-+----------------------------------+-----------------+-----------------+----------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                         ; Library ;
-+----------------------------------+-----------------+-----------------+----------------------------------------------------------------------+---------+
-; top.vhd                          ; yes             ; User VHDL File  ; C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/top.vhd       ;         ;
-; clockDiv.vhd                     ; yes             ; User VHDL File  ; C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/clockDiv.vhd  ;         ;
-; binaryCtr.vhd                    ; yes             ; User VHDL File  ; C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/binaryCtr.vhd ;         ;
-; binToGray.vhd                    ; yes             ; User VHDL File  ; C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/binToGray.vhd ;         ;
-+----------------------------------+-----------------+-----------------+----------------------------------------------------------------------+---------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                   ;
++----------------------------------+-----------------+-----------------+-------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                            ; Library ;
++----------------------------------+-----------------+-----------------+-------------------------------------------------------------------------+---------+
+; top.vhd                          ; yes             ; User VHDL File  ; C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/top.vhd          ;         ;
+; clockDiv.vhd                     ; yes             ; User VHDL File  ; C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/clockDiv.vhd     ;         ;
+; binaryCtr.vhd                    ; yes             ; User VHDL File  ; C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/binaryCtr.vhd    ;         ;
+; binToGray.vhd                    ; yes             ; User VHDL File  ; C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/binToGray.vhd    ;         ;
+; grayToDigits.vhd                 ; yes             ; User VHDL File  ; C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/grayToDigits.vhd ;         ;
+; digitToDisp.vhd                  ; yes             ; User VHDL File  ; C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/digitToDisp.vhd  ;         ;
+; selector.vhd                     ; yes             ; User VHDL File  ; C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/selector.vhd     ;         ;
++----------------------------------+-----------------+-----------------+-------------------------------------------------------------------------+---------+
 
 
-+----------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary              ;
-+---------------------------------------------+------------+
-; Resource                                    ; Usage      ;
-+---------------------------------------------+------------+
-;                                             ;            ;
-; Total combinational functions               ; 0          ;
-; Logic element usage by number of LUT inputs ;            ;
-;     -- 4 input functions                    ; 0          ;
-;     -- 3 input functions                    ; 0          ;
-;     -- <=2 input functions                  ; 0          ;
-;                                             ;            ;
-; Logic elements by mode                      ;            ;
-;     -- normal mode                          ; 0          ;
-;     -- arithmetic mode                      ; 0          ;
-;                                             ;            ;
-; Total registers                             ; 0          ;
-;     -- Dedicated logic registers            ; 0          ;
-;     -- I/O registers                        ; 0          ;
-;                                             ;            ;
-; I/O pins                                    ; 12         ;
-;                                             ;            ;
-; Embedded Multiplier 9-bit elements          ; 0          ;
-;                                             ;            ;
-; Maximum fan-out node                        ; control[0] ;
-; Maximum fan-out                             ; 1          ;
-; Total fan-out                               ; 12         ;
-; Average fan-out                             ; 0.50       ;
-+---------------------------------------------+------------+
++-----------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary               ;
++---------------------------------------------+-------------+
+; Resource                                    ; Usage       ;
++---------------------------------------------+-------------+
+; Estimated Total logic elements              ; 94          ;
+;                                             ;             ;
+; Total combinational functions               ; 93          ;
+; Logic element usage by number of LUT inputs ;             ;
+;     -- 4 input functions                    ; 37          ;
+;     -- 3 input functions                    ; 9           ;
+;     -- <=2 input functions                  ; 47          ;
+;                                             ;             ;
+; Logic elements by mode                      ;             ;
+;     -- normal mode                          ; 64          ;
+;     -- arithmetic mode                      ; 29          ;
+;                                             ;             ;
+; Total registers                             ; 39          ;
+;     -- Dedicated logic registers            ; 39          ;
+;     -- I/O registers                        ; 0           ;
+;                                             ;             ;
+; I/O pins                                    ; 17          ;
+;                                             ;             ;
+; Embedded Multiplier 9-bit elements          ; 0           ;
+;                                             ;             ;
+; Maximum fan-out node                        ; clock~input ;
+; Maximum fan-out                             ; 33          ;
+; Total fan-out                               ; 407         ;
+; Average fan-out                             ; 2.45        ;
++---------------------------------------------+-------------+
 
 
 +----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -210,9 +217,25 @@ refer to the applicable agreement for further details.
 +----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
 ; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name ; Library Name ;
 +----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
-; |top                       ; 0 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 12   ; 0            ; |top                ; top         ; work         ;
+; |top                       ; 93 (0)              ; 39 (0)                    ; 0           ; 0            ; 0       ; 0         ; 17   ; 0            ; |top                ; top         ; work         ;
+;    |binaryCtr:c|           ; 22 (22)             ; 6 (6)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|binaryCtr:c    ; binaryCtr   ; work         ;
+;    |clockDiv:f|            ; 46 (46)             ; 26 (26)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|clockDiv:f     ; clockDiv    ; work         ;
+;    |digitToDisp:dd|        ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|digitToDisp:dd ; digitToDisp ; work         ;
+;    |selector:s|            ; 18 (18)             ; 7 (7)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|selector:s     ; selector    ; work         ;
 +----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++---------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                               ;
++----------------------------------------------------+---------------------+------------------------+
+; Latch Name                                         ; Latch Enable Signal ; Free of Timing Hazards ;
++----------------------------------------------------+---------------------+------------------------+
+; grayToDigits:gd|disp1[1]                           ; VCC                 ; yes                    ;
+; grayToDigits:gd|disp1[2]                           ; VCC                 ; yes                    ;
+; Number of user-specified and inferred latches = 2  ;                     ;                        ;
++----------------------------------------------------+---------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
 
 
 +------------------------------------------------------+
@@ -220,23 +243,23 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 0     ;
+; Total registers                              ; 39    ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Clear ; 6     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Clock Enable       ; 31    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+----------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "binToGray:g"                                                                        ;
-+------+--------+----------+-------------------------------------------------------------------------------------+
-; Port ; Type   ; Severity ; Details                                                                             ;
-+------+--------+----------+-------------------------------------------------------------------------------------+
-; gry  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+------+--------+----------+-------------------------------------------------------------------------------------+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |top|binaryCtr:c|ctr[5]    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
 
 
 +-----------------------------------------------------+
@@ -244,13 +267,24 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 12                          ;
-; cycloneiii_lcell_comb ; 1                           ;
-;     normal            ; 1                           ;
+; boundary_port         ; 17                          ;
+; cycloneiii_ff         ; 39                          ;
+;     ENA               ; 25                          ;
+;     ENA CLR           ; 6                           ;
+;     plain             ; 8                           ;
+; cycloneiii_lcell_comb ; 100                         ;
+;     arith             ; 29                          ;
+;         2 data inputs ; 25                          ;
+;         3 data inputs ; 4                           ;
+;     normal            ; 71                          ;
 ;         0 data inputs ; 1                           ;
+;         1 data inputs ; 9                           ;
+;         2 data inputs ; 19                          ;
+;         3 data inputs ; 5                           ;
+;         4 data inputs ; 37                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 0.00                        ;
-; Average LUT depth     ; 0.00                        ;
+; Max LUT depth         ; 4.40                        ;
+; Average LUT depth     ; 3.33                        ;
 +-----------------------+-----------------------------+
 
 
@@ -269,12 +303,12 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Sun Oct 13 10:34:06 2019
+    Info: Processing started: Mon Oct 14 11:54:25 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off updowncounter -c top
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (12021): Found 2 design units, including 1 entities, in source file top.vhd
-    Info (12022): Found design unit 1: top-behav File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/top.vhd Line: 11
+    Info (12022): Found design unit 1: top-behav File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/top.vhd Line: 12
     Info (12023): Found entity 1: top File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/top.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file clockdiv.vhd
     Info (12022): Found design unit 1: clockDiv-behav File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/clockDiv.vhd Line: 10
@@ -291,37 +325,116 @@ Info (12021): Found 2 design units, including 1 entities, in source file tffvhd.
 Info (12021): Found 2 design units, including 1 entities, in source file bintogray.vhd
     Info (12022): Found design unit 1: binToGray-behav File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/binToGray.vhd Line: 9
     Info (12023): Found entity 1: binToGray File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/binToGray.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file graytodigits.vhd
+    Info (12022): Found design unit 1: grayToDigits-behav File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/grayToDigits.vhd Line: 10
+    Info (12023): Found entity 1: grayToDigits File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/grayToDigits.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file digittodisp.vhd
+    Info (12022): Found design unit 1: digitToDisp-behav File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/digitToDisp.vhd Line: 9
+    Info (12023): Found entity 1: digitToDisp File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/digitToDisp.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file selector.vhd
+    Info (12022): Found design unit 1: selector-behav File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/selector.vhd Line: 11
+    Info (12023): Found entity 1: selector File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/selector.vhd Line: 4
 Info (12127): Elaborating entity "top" for the top level hierarchy
 Warning (10541): VHDL Signal Declaration warning at top.vhd(7): used implicit default value for signal "led" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/top.vhd Line: 7
-Warning (10541): VHDL Signal Declaration warning at top.vhd(8): used implicit default value for signal "dec" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/top.vhd Line: 8
-Warning (10036): Verilog HDL or VHDL warning at top.vhd(15): object "gray" assigned a value but never read File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/top.vhd Line: 15
-Info (12128): Elaborating entity "clockDiv" for hierarchy "clockDiv:f" File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/top.vhd Line: 37
+Info (12128): Elaborating entity "clockDiv" for hierarchy "clockDiv:f" File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/top.vhd Line: 59
 Warning (10492): VHDL Process Statement warning at clockDiv.vhd(19): signal "en" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/clockDiv.vhd Line: 19
-Info (12128): Elaborating entity "binaryCtr" for hierarchy "binaryCtr:c" File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/top.vhd Line: 38
+Info (12128): Elaborating entity "binaryCtr" for hierarchy "binaryCtr:c" File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/top.vhd Line: 60
 Warning (10492): VHDL Process Statement warning at binaryCtr.vhd(24): signal "mode" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/binaryCtr.vhd Line: 24
-Info (12128): Elaborating entity "binToGray" for hierarchy "binToGray:g" File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/top.vhd Line: 39
+Info (12128): Elaborating entity "binToGray" for hierarchy "binToGray:g" File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/top.vhd Line: 61
+Info (12128): Elaborating entity "grayToDigits" for hierarchy "grayToDigits:gd" File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/top.vhd Line: 62
+Warning (10036): Verilog HDL or VHDL warning at grayToDigits.vhd(16): object "D" assigned a value but never read File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/grayToDigits.vhd Line: 16
+Warning (10492): VHDL Process Statement warning at grayToDigits.vhd(31): signal "g54" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/grayToDigits.vhd Line: 31
+Warning (10492): VHDL Process Statement warning at grayToDigits.vhd(34): signal "A" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/grayToDigits.vhd Line: 34
+Warning (10492): VHDL Process Statement warning at grayToDigits.vhd(34): signal "B" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/grayToDigits.vhd Line: 34
+Warning (10492): VHDL Process Statement warning at grayToDigits.vhd(34): signal "C" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/grayToDigits.vhd Line: 34
+Warning (10492): VHDL Process Statement warning at grayToDigits.vhd(35): signal "A" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/grayToDigits.vhd Line: 35
+Warning (10492): VHDL Process Statement warning at grayToDigits.vhd(35): signal "B" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/grayToDigits.vhd Line: 35
+Warning (10492): VHDL Process Statement warning at grayToDigits.vhd(35): signal "C" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/grayToDigits.vhd Line: 35
+Warning (10492): VHDL Process Statement warning at grayToDigits.vhd(36): signal "A" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/grayToDigits.vhd Line: 36
+Warning (10492): VHDL Process Statement warning at grayToDigits.vhd(36): signal "B" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/grayToDigits.vhd Line: 36
+Warning (10492): VHDL Process Statement warning at grayToDigits.vhd(36): signal "C" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/grayToDigits.vhd Line: 36
+Warning (10492): VHDL Process Statement warning at grayToDigits.vhd(37): signal "A" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/grayToDigits.vhd Line: 37
+Warning (10492): VHDL Process Statement warning at grayToDigits.vhd(37): signal "B" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/grayToDigits.vhd Line: 37
+Warning (10492): VHDL Process Statement warning at grayToDigits.vhd(37): signal "C" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/grayToDigits.vhd Line: 37
+Warning (10492): VHDL Process Statement warning at grayToDigits.vhd(39): signal "g54" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/grayToDigits.vhd Line: 39
+Warning (10492): VHDL Process Statement warning at grayToDigits.vhd(41): signal "A" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/grayToDigits.vhd Line: 41
+Warning (10492): VHDL Process Statement warning at grayToDigits.vhd(41): signal "B" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/grayToDigits.vhd Line: 41
+Warning (10492): VHDL Process Statement warning at grayToDigits.vhd(42): signal "A" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/grayToDigits.vhd Line: 42
+Warning (10492): VHDL Process Statement warning at grayToDigits.vhd(42): signal "B" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/grayToDigits.vhd Line: 42
+Warning (10492): VHDL Process Statement warning at grayToDigits.vhd(42): signal "C" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/grayToDigits.vhd Line: 42
+Warning (10492): VHDL Process Statement warning at grayToDigits.vhd(43): signal "A" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/grayToDigits.vhd Line: 43
+Warning (10492): VHDL Process Statement warning at grayToDigits.vhd(43): signal "B" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/grayToDigits.vhd Line: 43
+Warning (10492): VHDL Process Statement warning at grayToDigits.vhd(43): signal "C" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/grayToDigits.vhd Line: 43
+Warning (10492): VHDL Process Statement warning at grayToDigits.vhd(44): signal "B" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/grayToDigits.vhd Line: 44
+Warning (10492): VHDL Process Statement warning at grayToDigits.vhd(44): signal "C" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/grayToDigits.vhd Line: 44
+Warning (10492): VHDL Process Statement warning at grayToDigits.vhd(44): signal "A" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/grayToDigits.vhd Line: 44
+Warning (10492): VHDL Process Statement warning at grayToDigits.vhd(45): signal "A" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/grayToDigits.vhd Line: 45
+Warning (10492): VHDL Process Statement warning at grayToDigits.vhd(45): signal "B" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/grayToDigits.vhd Line: 45
+Warning (10492): VHDL Process Statement warning at grayToDigits.vhd(45): signal "C" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/grayToDigits.vhd Line: 45
+Warning (10492): VHDL Process Statement warning at grayToDigits.vhd(47): signal "g54" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/grayToDigits.vhd Line: 47
+Warning (10492): VHDL Process Statement warning at grayToDigits.vhd(48): signal "A" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/grayToDigits.vhd Line: 48
+Warning (10492): VHDL Process Statement warning at grayToDigits.vhd(49): signal "A" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/grayToDigits.vhd Line: 49
+Warning (10492): VHDL Process Statement warning at grayToDigits.vhd(50): signal "A" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/grayToDigits.vhd Line: 50
+Warning (10492): VHDL Process Statement warning at grayToDigits.vhd(51): signal "A" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/grayToDigits.vhd Line: 51
+Warning (10492): VHDL Process Statement warning at grayToDigits.vhd(51): signal "B" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/grayToDigits.vhd Line: 51
+Warning (10492): VHDL Process Statement warning at grayToDigits.vhd(51): signal "C" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/grayToDigits.vhd Line: 51
+Warning (10492): VHDL Process Statement warning at grayToDigits.vhd(52): signal "B" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/grayToDigits.vhd Line: 52
+Warning (10492): VHDL Process Statement warning at grayToDigits.vhd(52): signal "C" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/grayToDigits.vhd Line: 52
+Warning (10492): VHDL Process Statement warning at grayToDigits.vhd(52): signal "A" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/grayToDigits.vhd Line: 52
+Warning (10492): VHDL Process Statement warning at grayToDigits.vhd(53): signal "A" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/grayToDigits.vhd Line: 53
+Warning (10492): VHDL Process Statement warning at grayToDigits.vhd(53): signal "C" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/grayToDigits.vhd Line: 53
+Warning (10492): VHDL Process Statement warning at grayToDigits.vhd(55): signal "g54" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/grayToDigits.vhd Line: 55
+Warning (10492): VHDL Process Statement warning at grayToDigits.vhd(57): signal "A" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/grayToDigits.vhd Line: 57
+Warning (10492): VHDL Process Statement warning at grayToDigits.vhd(57): signal "B" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/grayToDigits.vhd Line: 57
+Warning (10492): VHDL Process Statement warning at grayToDigits.vhd(58): signal "A" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/grayToDigits.vhd Line: 58
+Warning (10492): VHDL Process Statement warning at grayToDigits.vhd(58): signal "B" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/grayToDigits.vhd Line: 58
+Warning (10492): VHDL Process Statement warning at grayToDigits.vhd(58): signal "C" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/grayToDigits.vhd Line: 58
+Warning (10492): VHDL Process Statement warning at grayToDigits.vhd(59): signal "A" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/grayToDigits.vhd Line: 59
+Warning (10492): VHDL Process Statement warning at grayToDigits.vhd(59): signal "B" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/grayToDigits.vhd Line: 59
+Warning (10492): VHDL Process Statement warning at grayToDigits.vhd(59): signal "C" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/grayToDigits.vhd Line: 59
+Warning (10492): VHDL Process Statement warning at grayToDigits.vhd(60): signal "A" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/grayToDigits.vhd Line: 60
+Warning (10492): VHDL Process Statement warning at grayToDigits.vhd(60): signal "B" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/grayToDigits.vhd Line: 60
+Warning (10492): VHDL Process Statement warning at grayToDigits.vhd(60): signal "C" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/grayToDigits.vhd Line: 60
+Warning (10492): VHDL Process Statement warning at grayToDigits.vhd(61): signal "A" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/grayToDigits.vhd Line: 61
+Warning (10492): VHDL Process Statement warning at grayToDigits.vhd(61): signal "B" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/grayToDigits.vhd Line: 61
+Warning (10492): VHDL Process Statement warning at grayToDigits.vhd(61): signal "C" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/grayToDigits.vhd Line: 61
+Warning (10631): VHDL Process Statement warning at grayToDigits.vhd(20): inferring latch(es) for signal or variable "disp1", which holds its previous value in one or more paths through the process File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/grayToDigits.vhd Line: 20
+Warning (10631): VHDL Process Statement warning at grayToDigits.vhd(20): inferring latch(es) for signal or variable "disp2", which holds its previous value in one or more paths through the process File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/grayToDigits.vhd Line: 20
+Info (10041): Inferred latch for "disp2[1]" at grayToDigits.vhd(20) File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/grayToDigits.vhd Line: 20
+Info (10041): Inferred latch for "disp2[2]" at grayToDigits.vhd(20) File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/grayToDigits.vhd Line: 20
+Info (10041): Inferred latch for "disp2[3]" at grayToDigits.vhd(20) File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/grayToDigits.vhd Line: 20
+Info (10041): Inferred latch for "disp1[0]" at grayToDigits.vhd(20) File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/grayToDigits.vhd Line: 20
+Info (10041): Inferred latch for "disp1[1]" at grayToDigits.vhd(20) File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/grayToDigits.vhd Line: 20
+Info (10041): Inferred latch for "disp1[2]" at grayToDigits.vhd(20) File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/grayToDigits.vhd Line: 20
+Info (12128): Elaborating entity "selector" for hierarchy "selector:s" File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/top.vhd Line: 63
+Info (12128): Elaborating entity "digitToDisp" for hierarchy "digitToDisp:dd" File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/top.vhd Line: 64
+Warning (14026): LATCH primitive "grayToDigits:gd|disp2[1]" is permanently enabled File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/grayToDigits.vhd Line: 20
+Warning (14026): LATCH primitive "grayToDigits:gd|disp2[2]" is permanently enabled File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/grayToDigits.vhd Line: 20
+Warning (14026): LATCH primitive "grayToDigits:gd|disp2[3]" is permanently enabled File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/grayToDigits.vhd Line: 20
+Warning (14026): LATCH primitive "grayToDigits:gd|disp1[0]" is permanently enabled File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/grayToDigits.vhd Line: 20
+Warning (13004): Presettable and clearable registers converted to equivalent circuits with latches. Registers power-up to an undefined state, and DEVCLRn places the registers in an undefined state.
+    Warning (13310): Register "binaryCtr:c|ctr[3]" is converted into an equivalent circuit using register "binaryCtr:c|ctr[3]~_emulated" and latch "binaryCtr:c|ctr[3]~1" File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/binaryCtr.vhd Line: 22
+    Warning (13310): Register "binaryCtr:c|ctr[2]" is converted into an equivalent circuit using register "binaryCtr:c|ctr[2]~_emulated" and latch "binaryCtr:c|ctr[3]~1" File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/binaryCtr.vhd Line: 22
+    Warning (13310): Register "binaryCtr:c|ctr[4]" is converted into an equivalent circuit using register "binaryCtr:c|ctr[4]~_emulated" and latch "binaryCtr:c|ctr[3]~1" File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/binaryCtr.vhd Line: 22
+    Warning (13310): Register "binaryCtr:c|ctr[1]" is converted into an equivalent circuit using register "binaryCtr:c|ctr[1]~_emulated" and latch "binaryCtr:c|ctr[3]~1" File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/binaryCtr.vhd Line: 22
+    Warning (13310): Register "binaryCtr:c|ctr[5]" is converted into an equivalent circuit using register "binaryCtr:c|ctr[5]~_emulated" and latch "binaryCtr:c|ctr[3]~1" File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/binaryCtr.vhd Line: 22
+    Warning (13310): Register "binaryCtr:c|ctr[0]" is converted into an equivalent circuit using register "binaryCtr:c|ctr[0]~_emulated" and latch "binaryCtr:c|ctr[3]~1" File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/binaryCtr.vhd Line: 22
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "led" is stuck at GND File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/top.vhd Line: 7
-    Warning (13410): Pin "dec[0]" is stuck at GND File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/top.vhd Line: 8
-    Warning (13410): Pin "dec[1]" is stuck at GND File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/top.vhd Line: 8
-    Warning (13410): Pin "dec[2]" is stuck at GND File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/top.vhd Line: 8
-    Warning (13410): Pin "dec[3]" is stuck at GND File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/top.vhd Line: 8
+Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 7 input pin(s) that do not drive logic
+Warning (21074): Design contains 3 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "control[0]" File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/top.vhd Line: 5
     Warning (15610): No output dependent on input pin "control[1]" File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/top.vhd Line: 5
     Warning (15610): No output dependent on input pin "control[2]" File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/top.vhd Line: 5
-    Warning (15610): No output dependent on input pin "control[3]" File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/top.vhd Line: 5
-    Warning (15610): No output dependent on input pin "control[4]" File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/top.vhd Line: 5
-    Warning (15610): No output dependent on input pin "control[5]" File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/top.vhd Line: 5
-    Warning (15610): No output dependent on input pin "clock" File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/top.vhd Line: 6
-Info (21057): Implemented 12 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 111 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 7 input pins
-    Info (21059): Implemented 5 output pins
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 22 warnings
-    Info: Peak virtual memory: 4791 megabytes
-    Info: Processing ended: Sun Oct 13 10:34:16 2019
+    Info (21059): Implemented 10 output pins
+    Info (21061): Implemented 94 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 81 warnings
+    Info: Peak virtual memory: 4795 megabytes
+    Info: Processing ended: Mon Oct 14 11:54:35 2019
     Info: Elapsed time: 00:00:10
     Info: Total CPU time (on all processors): 00:00:21
 

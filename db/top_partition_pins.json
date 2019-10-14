@@ -2,7 +2,60 @@
 	"partitions" : [
 		{
 			"name" : "Top",
-			"pins" : []
+			"pins" : [
+				{
+					"name" : "dec[0]",
+					"strict" : false
+				},
+				{
+					"name" : "dec[1]",
+					"strict" : false
+				},
+				{
+					"name" : "dec[2]",
+					"strict" : false
+				},
+				{
+					"name" : "dec[3]",
+					"strict" : false
+				},
+				{
+					"name" : "dec[4]",
+					"strict" : false
+				},
+				{
+					"name" : "dec[5]",
+					"strict" : false
+				},
+				{
+					"name" : "dec[6]",
+					"strict" : false
+				},
+				{
+					"name" : "seg[0]",
+					"strict" : false
+				},
+				{
+					"name" : "seg[1]",
+					"strict" : false
+				},
+				{
+					"name" : "clock",
+					"strict" : false
+				},
+				{
+					"name" : "control[4]",
+					"strict" : false
+				},
+				{
+					"name" : "control[3]",
+					"strict" : false
+				},
+				{
+					"name" : "control[5]",
+					"strict" : false
+				}
+			]
 		}
 	]
 }
