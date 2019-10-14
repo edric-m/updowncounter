@@ -2,21 +2,21 @@
 control[0] => ~NO_FANOUT~
 control[1] => ~NO_FANOUT~
 control[2] => ~NO_FANOUT~
-control[3] => binaryCtr:c.mode
-control[4] => binaryCtr:c.reset
-control[5] => clockdiv:f.en
+control[3] => ~NO_FANOUT~
+control[4] => ~NO_FANOUT~
+control[5] => ~NO_FANOUT~
 clock => clockdiv:f.clk
 clock => selector:s.clk
-led <= comb.DB_MAX_OUTPUT_PORT_TYPE
-dec[0] <= digitToDisp:dd.disp[0]
-dec[1] <= digitToDisp:dd.disp[1]
-dec[2] <= digitToDisp:dd.disp[2]
-dec[3] <= digitToDisp:dd.disp[3]
-dec[4] <= digitToDisp:dd.disp[4]
-dec[5] <= digitToDisp:dd.disp[5]
-dec[6] <= digitToDisp:dd.disp[6]
-seg[0] <= selector:s.di[0]
-seg[1] <= selector:s.di[1]
+led << comb.DB_MAX_OUTPUT_PORT_TYPE
+dec[0] << digitToDisp:dd.disp[0]
+dec[1] << digitToDisp:dd.disp[1]
+dec[2] << digitToDisp:dd.disp[2]
+dec[3] << digitToDisp:dd.disp[3]
+dec[4] << digitToDisp:dd.disp[4]
+dec[5] << digitToDisp:dd.disp[5]
+dec[6] << digitToDisp:dd.disp[6]
+seg[0] << selector:s.di[0]
+seg[1] << selector:s.di[1]
 
 
 |top|clockDiv:f
@@ -46,7 +46,9 @@ clk => ctr[21].CLK
 clk => ctr[22].CLK
 clk => ctr[23].CLK
 clk => ctr[24].CLK
+clk => ctr[25].CLK
 en => sclk.ENA
+en => ctr[25].ENA
 en => ctr[24].ENA
 en => ctr[23].ENA
 en => ctr[22].ENA
@@ -82,12 +84,12 @@ reset => ctr[2].ALOAD
 reset => ctr[3].ALOAD
 reset => ctr[4].ALOAD
 reset => ctr[5].ALOAD
-clock => ctr[0].CLK
-clock => ctr[1].CLK
-clock => ctr[2].CLK
-clock => ctr[3].CLK
-clock => ctr[4].CLK
-clock => ctr[5].CLK
+clk => ctr[0].CLK
+clk => ctr[1].CLK
+clk => ctr[2].CLK
+clk => ctr[3].CLK
+clk => ctr[4].CLK
+clk => ctr[5].CLK
 mode => ctr.OUTPUTSELECT
 mode => ctr.OUTPUTSELECT
 mode => ctr.OUTPUTSELECT

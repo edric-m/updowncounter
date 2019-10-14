@@ -9,7 +9,7 @@ end clockDiv;
 
 architecture behav of clockDiv is
 
-constant lim : integer := 24_999_999; --2 secs
+constant lim : integer := 49_999_999; --2 secs
 signal ctr : integer range 0 to lim; 
 signal sclk : std_logic;
 

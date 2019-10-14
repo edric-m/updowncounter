@@ -6,7 +6,7 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL; --?
 
 entity binaryCtr is
 	port (reset : in std_logic;
-			clock : in std_logic;
+			clk : in std_logic;
 			mode : in std_logic;
 			bVal : out std_logic_vector(5 downto 0));
 end binaryCtr;
@@ -17,7 +17,7 @@ signal ctr : std_logic_vector (5 downto 0) :="000000";
 
 begin
 
-process(clock,reset)
+process(clk,reset)
 begin
 	if reset = '1' then
 	
@@ -27,7 +27,7 @@ begin
 			ctr <= "111111"; --reset value count down mode
 		end if;
 	
-	elsif clock'event and clock='0' then
+	elsif clk'event and clk='0' then
 		--if mode = count up
 		
 		if mode = '1' then

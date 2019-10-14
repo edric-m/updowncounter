@@ -1,5 +1,5 @@
 Analysis & Synthesis report for top
-Mon Oct 14 11:54:35 2019
+Mon Oct 14 16:28:12 2019
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -14,11 +14,13 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. User-Specified and Inferred Latches
-  9. General Register Statistics
- 10. Multiplexer Restructuring Statistics (Restructuring Performed)
- 11. Post-Synthesis Netlist Statistics for Top Partition
- 12. Elapsed Time Per Partition
- 13. Analysis & Synthesis Messages
+  9. Registers Removed During Synthesis
+ 10. General Register Statistics
+ 11. Port Connectivity Checks: "binaryCtr:c"
+ 12. Port Connectivity Checks: "clockDiv:f"
+ 13. Post-Synthesis Netlist Statistics for Top Partition
+ 14. Elapsed Time Per Partition
+ 15. Analysis & Synthesis Messages
 
 
 
@@ -44,13 +46,13 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon Oct 14 11:54:35 2019       ;
+; Analysis & Synthesis Status        ; Successful - Mon Oct 14 16:28:12 2019       ;
 ; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                      ; top                                         ;
 ; Top-level Entity Name              ; top                                         ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 94                                          ;
-;     Total combinational functions  ; 93                                          ;
+; Total logic elements               ; 81                                          ;
+;     Total combinational functions  ; 80                                          ;
 ;     Dedicated logic registers      ; 39                                          ;
 ; Total registers                    ; 39                                          ;
 ; Total pins                         ; 17                                          ;
@@ -185,17 +187,17 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+-------------+
 ; Resource                                    ; Usage       ;
 +---------------------------------------------+-------------+
-; Estimated Total logic elements              ; 94          ;
+; Estimated Total logic elements              ; 81          ;
 ;                                             ;             ;
-; Total combinational functions               ; 93          ;
+; Total combinational functions               ; 80          ;
 ; Logic element usage by number of LUT inputs ;             ;
-;     -- 4 input functions                    ; 37          ;
-;     -- 3 input functions                    ; 9           ;
-;     -- <=2 input functions                  ; 47          ;
+;     -- 4 input functions                    ; 32          ;
+;     -- 3 input functions                    ; 22          ;
+;     -- <=2 input functions                  ; 26          ;
 ;                                             ;             ;
 ; Logic elements by mode                      ;             ;
-;     -- normal mode                          ; 64          ;
-;     -- arithmetic mode                      ; 29          ;
+;     -- normal mode                          ; 56          ;
+;     -- arithmetic mode                      ; 24          ;
 ;                                             ;             ;
 ; Total registers                             ; 39          ;
 ;     -- Dedicated logic registers            ; 39          ;
@@ -207,22 +209,23 @@ refer to the applicable agreement for further details.
 ;                                             ;             ;
 ; Maximum fan-out node                        ; clock~input ;
 ; Maximum fan-out                             ; 33          ;
-; Total fan-out                               ; 407         ;
-; Average fan-out                             ; 2.45        ;
+; Total fan-out                               ; 347         ;
+; Average fan-out                             ; 2.27        ;
 +---------------------------------------------+-------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                      ;
-+----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
-; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name ; Library Name ;
-+----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
-; |top                       ; 93 (0)              ; 39 (0)                    ; 0           ; 0            ; 0       ; 0         ; 17   ; 0            ; |top                ; top         ; work         ;
-;    |binaryCtr:c|           ; 22 (22)             ; 6 (6)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|binaryCtr:c    ; binaryCtr   ; work         ;
-;    |clockDiv:f|            ; 46 (46)             ; 26 (26)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|clockDiv:f     ; clockDiv    ; work         ;
-;    |digitToDisp:dd|        ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|digitToDisp:dd ; digitToDisp ; work         ;
-;    |selector:s|            ; 18 (18)             ; 7 (7)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|selector:s     ; selector    ; work         ;
-+----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                        ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------+--------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name  ; Entity Name  ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------+--------------+--------------+
+; |top                       ; 80 (0)              ; 39 (0)                    ; 0           ; 0            ; 0       ; 0         ; 17   ; 0            ; |top                 ; top          ; work         ;
+;    |binaryCtr:c|           ; 8 (8)               ; 6 (6)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|binaryCtr:c     ; binaryCtr    ; work         ;
+;    |clockDiv:f|            ; 46 (46)             ; 26 (26)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|clockDiv:f      ; clockDiv     ; work         ;
+;    |digitToDisp:dd|        ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|digitToDisp:dd  ; digitToDisp  ; work         ;
+;    |grayToDigits:gd|       ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|grayToDigits:gd ; grayToDigits ; work         ;
+;    |selector:s|            ; 16 (16)             ; 7 (7)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|selector:s      ; selector     ; work         ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------+--------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -238,6 +241,16 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
 
 
++--------------------------------------------------------------------+
+; Registers Removed During Synthesis                                 ;
++---------------------------------------+----------------------------+
+; Register name                         ; Reason for Removal         ;
++---------------------------------------+----------------------------+
+; clockDiv:f|ctr[0]                     ; Merged with selector:s|ctr ;
+; Total Number of Removed Registers = 1 ;                            ;
++---------------------------------------+----------------------------+
+
+
 +------------------------------------------------------+
 ; General Register Statistics                          ;
 +----------------------------------------------+-------+
@@ -246,20 +259,30 @@ Note: All latches listed above may not be present at the end of synthesis due to
 ; Total registers                              ; 39    ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 6     ;
+; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 31    ;
+; Number of registers using Clock Enable       ; 0     ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                           ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
-; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |top|binaryCtr:c|ctr[5]    ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
++-----------------------------------------+
+; Port Connectivity Checks: "binaryCtr:c" ;
++-------+-------+----------+--------------+
+; Port  ; Type  ; Severity ; Details      ;
++-------+-------+----------+--------------+
+; reset ; Input ; Info     ; Stuck at GND ;
+; mode  ; Input ; Info     ; Stuck at VCC ;
++-------+-------+----------+--------------+
+
+
++----------------------------------------+
+; Port Connectivity Checks: "clockDiv:f" ;
++------+-------+----------+--------------+
+; Port ; Type  ; Severity ; Details      ;
++------+-------+----------+--------------+
+; en   ; Input ; Info     ; Stuck at VCC ;
++------+-------+----------+--------------+
 
 
 +-----------------------------------------------------+
@@ -269,22 +292,19 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +-----------------------+-----------------------------+
 ; boundary_port         ; 17                          ;
 ; cycloneiii_ff         ; 39                          ;
-;     ENA               ; 25                          ;
-;     ENA CLR           ; 6                           ;
-;     plain             ; 8                           ;
-; cycloneiii_lcell_comb ; 100                         ;
-;     arith             ; 29                          ;
-;         2 data inputs ; 25                          ;
-;         3 data inputs ; 4                           ;
-;     normal            ; 71                          ;
+;     plain             ; 39                          ;
+; cycloneiii_lcell_comb ; 87                          ;
+;     arith             ; 24                          ;
+;         2 data inputs ; 23                          ;
+;         3 data inputs ; 1                           ;
+;     normal            ; 63                          ;
 ;         0 data inputs ; 1                           ;
 ;         1 data inputs ; 9                           ;
-;         2 data inputs ; 19                          ;
-;         3 data inputs ; 5                           ;
-;         4 data inputs ; 37                          ;
+;         3 data inputs ; 21                          ;
+;         4 data inputs ; 32                          ;
 ;                       ;                             ;
 ; Max LUT depth         ; 4.40                        ;
-; Average LUT depth     ; 3.33                        ;
+; Average LUT depth     ; 3.00                        ;
 +-----------------------+-----------------------------+
 
 
@@ -303,7 +323,7 @@ Note: All latches listed above may not be present at the end of synthesis due to
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Mon Oct 14 11:54:25 2019
+    Info: Processing started: Mon Oct 14 16:28:02 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off updowncounter -c top
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -336,12 +356,12 @@ Info (12021): Found 2 design units, including 1 entities, in source file selecto
     Info (12023): Found entity 1: selector File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/selector.vhd Line: 4
 Info (12127): Elaborating entity "top" for the top level hierarchy
 Warning (10541): VHDL Signal Declaration warning at top.vhd(7): used implicit default value for signal "led" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/top.vhd Line: 7
-Info (12128): Elaborating entity "clockDiv" for hierarchy "clockDiv:f" File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/top.vhd Line: 59
+Info (12128): Elaborating entity "clockDiv" for hierarchy "clockDiv:f" File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/top.vhd Line: 60
 Warning (10492): VHDL Process Statement warning at clockDiv.vhd(19): signal "en" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/clockDiv.vhd Line: 19
-Info (12128): Elaborating entity "binaryCtr" for hierarchy "binaryCtr:c" File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/top.vhd Line: 60
+Info (12128): Elaborating entity "binaryCtr" for hierarchy "binaryCtr:c" File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/top.vhd Line: 61
 Warning (10492): VHDL Process Statement warning at binaryCtr.vhd(24): signal "mode" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/binaryCtr.vhd Line: 24
-Info (12128): Elaborating entity "binToGray" for hierarchy "binToGray:g" File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/top.vhd Line: 61
-Info (12128): Elaborating entity "grayToDigits" for hierarchy "grayToDigits:gd" File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/top.vhd Line: 62
+Info (12128): Elaborating entity "binToGray" for hierarchy "binToGray:g" File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/top.vhd Line: 62
+Info (12128): Elaborating entity "grayToDigits" for hierarchy "grayToDigits:gd" File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/top.vhd Line: 63
 Warning (10036): Verilog HDL or VHDL warning at grayToDigits.vhd(16): object "D" assigned a value but never read File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/grayToDigits.vhd Line: 16
 Warning (10492): VHDL Process Statement warning at grayToDigits.vhd(31): signal "g54" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/grayToDigits.vhd Line: 31
 Warning (10492): VHDL Process Statement warning at grayToDigits.vhd(34): signal "A" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/grayToDigits.vhd Line: 34
@@ -406,36 +426,32 @@ Info (10041): Inferred latch for "disp2[3]" at grayToDigits.vhd(20) File: C:/Use
 Info (10041): Inferred latch for "disp1[0]" at grayToDigits.vhd(20) File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/grayToDigits.vhd Line: 20
 Info (10041): Inferred latch for "disp1[1]" at grayToDigits.vhd(20) File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/grayToDigits.vhd Line: 20
 Info (10041): Inferred latch for "disp1[2]" at grayToDigits.vhd(20) File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/grayToDigits.vhd Line: 20
-Info (12128): Elaborating entity "selector" for hierarchy "selector:s" File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/top.vhd Line: 63
-Info (12128): Elaborating entity "digitToDisp" for hierarchy "digitToDisp:dd" File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/top.vhd Line: 64
+Info (12128): Elaborating entity "selector" for hierarchy "selector:s" File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/top.vhd Line: 72
+Info (12128): Elaborating entity "digitToDisp" for hierarchy "digitToDisp:dd" File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/top.vhd Line: 73
 Warning (14026): LATCH primitive "grayToDigits:gd|disp2[1]" is permanently enabled File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/grayToDigits.vhd Line: 20
 Warning (14026): LATCH primitive "grayToDigits:gd|disp2[2]" is permanently enabled File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/grayToDigits.vhd Line: 20
 Warning (14026): LATCH primitive "grayToDigits:gd|disp2[3]" is permanently enabled File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/grayToDigits.vhd Line: 20
 Warning (14026): LATCH primitive "grayToDigits:gd|disp1[0]" is permanently enabled File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/grayToDigits.vhd Line: 20
-Warning (13004): Presettable and clearable registers converted to equivalent circuits with latches. Registers power-up to an undefined state, and DEVCLRn places the registers in an undefined state.
-    Warning (13310): Register "binaryCtr:c|ctr[3]" is converted into an equivalent circuit using register "binaryCtr:c|ctr[3]~_emulated" and latch "binaryCtr:c|ctr[3]~1" File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/binaryCtr.vhd Line: 22
-    Warning (13310): Register "binaryCtr:c|ctr[2]" is converted into an equivalent circuit using register "binaryCtr:c|ctr[2]~_emulated" and latch "binaryCtr:c|ctr[3]~1" File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/binaryCtr.vhd Line: 22
-    Warning (13310): Register "binaryCtr:c|ctr[4]" is converted into an equivalent circuit using register "binaryCtr:c|ctr[4]~_emulated" and latch "binaryCtr:c|ctr[3]~1" File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/binaryCtr.vhd Line: 22
-    Warning (13310): Register "binaryCtr:c|ctr[1]" is converted into an equivalent circuit using register "binaryCtr:c|ctr[1]~_emulated" and latch "binaryCtr:c|ctr[3]~1" File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/binaryCtr.vhd Line: 22
-    Warning (13310): Register "binaryCtr:c|ctr[5]" is converted into an equivalent circuit using register "binaryCtr:c|ctr[5]~_emulated" and latch "binaryCtr:c|ctr[3]~1" File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/binaryCtr.vhd Line: 22
-    Warning (13310): Register "binaryCtr:c|ctr[0]" is converted into an equivalent circuit using register "binaryCtr:c|ctr[0]~_emulated" and latch "binaryCtr:c|ctr[3]~1" File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/binaryCtr.vhd Line: 22
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "led" is stuck at GND File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/top.vhd Line: 7
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 3 input pin(s) that do not drive logic
+Warning (21074): Design contains 6 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "control[0]" File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/top.vhd Line: 5
     Warning (15610): No output dependent on input pin "control[1]" File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/top.vhd Line: 5
     Warning (15610): No output dependent on input pin "control[2]" File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/top.vhd Line: 5
-Info (21057): Implemented 111 device resources after synthesis - the final resource count might be different
+    Warning (15610): No output dependent on input pin "control[3]" File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/top.vhd Line: 5
+    Warning (15610): No output dependent on input pin "control[4]" File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/top.vhd Line: 5
+    Warning (15610): No output dependent on input pin "control[5]" File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/top.vhd Line: 5
+Info (21057): Implemented 99 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 7 input pins
     Info (21059): Implemented 10 output pins
-    Info (21061): Implemented 94 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 81 warnings
+    Info (21061): Implemented 82 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 77 warnings
     Info: Peak virtual memory: 4795 megabytes
-    Info: Processing ended: Mon Oct 14 11:54:35 2019
+    Info: Processing ended: Mon Oct 14 16:28:12 2019
     Info: Elapsed time: 00:00:10
-    Info: Total CPU time (on all processors): 00:00:21
+    Info: Total CPU time (on all processors): 00:00:22
 
 
