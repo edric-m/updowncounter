@@ -1,5 +1,5 @@
 Analysis & Synthesis report for top
-Wed Oct 16 07:55:01 2019
+Wed Oct 16 08:18:54 2019
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -47,7 +47,7 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed Oct 16 07:55:01 2019       ;
+; Analysis & Synthesis Status        ; Successful - Wed Oct 16 08:18:54 2019       ;
 ; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                      ; top                                         ;
 ; Top-level Entity Name              ; top                                         ;
@@ -163,7 +163,8 @@ refer to the applicable agreement for further details.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-4         ;   0.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processors 3-4         ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -193,8 +194,8 @@ refer to the applicable agreement for further details.
 ; Total combinational functions               ; 132         ;
 ; Logic element usage by number of LUT inputs ;             ;
 ;     -- 4 input functions                    ; 39          ;
-;     -- 3 input functions                    ; 35          ;
-;     -- <=2 input functions                  ; 58          ;
+;     -- 3 input functions                    ; 22          ;
+;     -- <=2 input functions                  ; 71          ;
 ;                                             ;             ;
 ; Logic elements by mode                      ;             ;
 ;     -- normal mode                          ; 83          ;
@@ -210,8 +211,8 @@ refer to the applicable agreement for further details.
 ;                                             ;             ;
 ; Maximum fan-out node                        ; clock~input ;
 ; Maximum fan-out                             ; 48          ;
-; Total fan-out                               ; 582         ;
-; Average fan-out                             ; 2.48        ;
+; Total fan-out                               ; 596         ;
+; Average fan-out                             ; 2.54        ;
 +---------------------------------------------+-------------+
 
 
@@ -221,12 +222,12 @@ refer to the applicable agreement for further details.
 ; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name  ; Entity Name  ; Library Name ;
 +----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------+--------------+--------------+
 ; |top                       ; 132 (0)             ; 69 (0)                    ; 0           ; 0            ; 0       ; 0         ; 17   ; 0            ; |top                 ; top          ; work         ;
-;    |binaryCtr:c|           ; 24 (24)             ; 12 (12)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|binaryCtr:c     ; binaryCtr    ; work         ;
-;    |clockDiv:f|            ; 47 (47)             ; 27 (27)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|clockDiv:f      ; clockDiv     ; work         ;
+;    |binaryCtr:c|           ; 23 (23)             ; 12 (12)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|binaryCtr:c     ; binaryCtr    ; work         ;
+;    |clockDiv:f|            ; 48 (48)             ; 27 (27)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|clockDiv:f      ; clockDiv     ; work         ;
 ;    |controller:ct|         ; 5 (5)               ; 5 (5)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|controller:ct   ; controller   ; work         ;
 ;    |digitToDisp:dd|        ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|digitToDisp:dd  ; digitToDisp  ; work         ;
-;    |grayToDigits:gd|       ; 4 (4)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|grayToDigits:gd ; grayToDigits ; work         ;
-;    |selector:s|            ; 45 (45)             ; 25 (25)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|selector:s      ; selector     ; work         ;
+;    |grayToDigits:gd|       ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|grayToDigits:gd ; grayToDigits ; work         ;
+;    |selector:s|            ; 42 (42)             ; 25 (25)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top|selector:s      ; selector     ; work         ;
 +----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------+--------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -276,9 +277,9 @@ Note: All latches listed above may not be present at the end of synthesis due to
 ; Total registers                              ; 69    ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 14    ;
+; Number of registers using Asynchronous Clear ; 40    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 36    ;
+; Number of registers using Clock Enable       ; 37    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -288,7 +289,7 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------------------------------+---------+
 ; Inverted Register                      ; Fan out ;
 +----------------------------------------+---------+
-; controller:ct|ctlBus[2]                ; 17      ;
+; controller:ct|ctlBus[2]                ; 44      ;
 ; binaryCtr:c|ctr[3]                     ; 11      ;
 ; binaryCtr:c|ctr[1]                     ; 7       ;
 ; controller:ct|stp                      ; 3       ;
@@ -314,9 +315,9 @@ Note: All latches listed above may not be present at the end of synthesis due to
 ; boundary_port         ; 17                          ;
 ; cycloneiii_ff         ; 69                          ;
 ;     CLR               ; 4                           ;
-;     ENA               ; 26                          ;
-;     ENA CLR           ; 10                          ;
-;     plain             ; 29                          ;
+;     ENA               ; 1                           ;
+;     ENA CLR           ; 36                          ;
+;     plain             ; 28                          ;
 ; cycloneiii_lcell_comb ; 134                         ;
 ;     arith             ; 49                          ;
 ;         2 data inputs ; 44                          ;
@@ -324,12 +325,12 @@ Note: All latches listed above may not be present at the end of synthesis due to
 ;     normal            ; 85                          ;
 ;         0 data inputs ; 1                           ;
 ;         1 data inputs ; 10                          ;
-;         2 data inputs ; 5                           ;
-;         3 data inputs ; 30                          ;
+;         2 data inputs ; 18                          ;
+;         3 data inputs ; 17                          ;
 ;         4 data inputs ; 39                          ;
 ;                       ;                             ;
 ; Max LUT depth         ; 5.00                        ;
-; Average LUT depth     ; 3.08                        ;
+; Average LUT depth     ; 3.18                        ;
 +-----------------------+-----------------------------+
 
 
@@ -348,7 +349,7 @@ Note: All latches listed above may not be present at the end of synthesis due to
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Wed Oct 16 07:54:51 2019
+    Info: Processing started: Wed Oct 16 08:18:44 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off updowncounter -c top
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -356,7 +357,7 @@ Info (12021): Found 2 design units, including 1 entities, in source file top.vhd
     Info (12022): Found design unit 1: top-behav File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/top.vhd Line: 12
     Info (12023): Found entity 1: top File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/top.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file clockdiv.vhd
-    Info (12022): Found design unit 1: clockDiv-behav File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/clockDiv.vhd Line: 10
+    Info (12022): Found design unit 1: clockDiv-behav File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/clockDiv.vhd Line: 11
     Info (12023): Found entity 1: clockDiv File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/clockDiv.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file binaryctr.vhd
     Info (12022): Found design unit 1: binaryCtr-behav File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/binaryCtr.vhd Line: 15
@@ -383,14 +384,14 @@ Info (12021): Found 2 design units, including 1 entities, in source file control
     Info (12022): Found design unit 1: controller-behav File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/controller.vhd Line: 10
     Info (12023): Found entity 1: controller File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/controller.vhd Line: 4
 Info (12127): Elaborating entity "top" for the top level hierarchy
-Info (12128): Elaborating entity "controller" for hierarchy "controller:ct" File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/top.vhd Line: 69
+Info (12128): Elaborating entity "controller" for hierarchy "controller:ct" File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/top.vhd Line: 70
 Warning (10492): VHDL Process Statement warning at controller.vhd(23): signal "mode" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/controller.vhd Line: 23
-Info (12128): Elaborating entity "clockDiv" for hierarchy "clockDiv:f" File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/top.vhd Line: 74
-Warning (10492): VHDL Process Statement warning at clockDiv.vhd(19): signal "en" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/clockDiv.vhd Line: 19
-Info (12128): Elaborating entity "binaryCtr" for hierarchy "binaryCtr:c" File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/top.vhd Line: 75
+Info (12128): Elaborating entity "clockDiv" for hierarchy "clockDiv:f" File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/top.vhd Line: 72
+Warning (10492): VHDL Process Statement warning at clockDiv.vhd(22): signal "en" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/clockDiv.vhd Line: 22
+Info (12128): Elaborating entity "binaryCtr" for hierarchy "binaryCtr:c" File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/top.vhd Line: 73
 Warning (10492): VHDL Process Statement warning at binaryCtr.vhd(26): signal "mode" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/binaryCtr.vhd Line: 26
-Info (12128): Elaborating entity "binToGray" for hierarchy "binToGray:g" File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/top.vhd Line: 76
-Info (12128): Elaborating entity "grayToDigits" for hierarchy "grayToDigits:gd" File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/top.vhd Line: 77
+Info (12128): Elaborating entity "binToGray" for hierarchy "binToGray:g" File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/top.vhd Line: 74
+Info (12128): Elaborating entity "grayToDigits" for hierarchy "grayToDigits:gd" File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/top.vhd Line: 75
 Warning (10036): Verilog HDL or VHDL warning at grayToDigits.vhd(16): object "D" assigned a value but never read File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/grayToDigits.vhd Line: 16
 Warning (10492): VHDL Process Statement warning at grayToDigits.vhd(31): signal "g54" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/grayToDigits.vhd Line: 31
 Warning (10492): VHDL Process Statement warning at grayToDigits.vhd(34): signal "A" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/grayToDigits.vhd Line: 34
@@ -455,8 +456,8 @@ Info (10041): Inferred latch for "disp2[3]" at grayToDigits.vhd(20) File: C:/Use
 Info (10041): Inferred latch for "disp1[0]" at grayToDigits.vhd(20) File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/grayToDigits.vhd Line: 20
 Info (10041): Inferred latch for "disp1[1]" at grayToDigits.vhd(20) File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/grayToDigits.vhd Line: 20
 Info (10041): Inferred latch for "disp1[2]" at grayToDigits.vhd(20) File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/grayToDigits.vhd Line: 20
-Info (12128): Elaborating entity "digitToDisp" for hierarchy "digitToDisp:dd" File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/top.vhd Line: 78
-Info (12128): Elaborating entity "selector" for hierarchy "selector:s" File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/top.vhd Line: 79
+Info (12128): Elaborating entity "digitToDisp" for hierarchy "digitToDisp:dd" File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/top.vhd Line: 76
+Info (12128): Elaborating entity "selector" for hierarchy "selector:s" File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/top.vhd Line: 77
 Warning (14026): LATCH primitive "grayToDigits:gd|disp2[1]" is permanently enabled File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/grayToDigits.vhd Line: 20
 Warning (14026): LATCH primitive "grayToDigits:gd|disp2[2]" is permanently enabled File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/grayToDigits.vhd Line: 20
 Warning (14026): LATCH primitive "grayToDigits:gd|disp2[3]" is permanently enabled File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/grayToDigits.vhd Line: 20
@@ -480,14 +481,14 @@ Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 1 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "control[3]" File: C:/Users/Erica/Desktop/New folder (2)/a3/updowncounter/top.vhd Line: 5
-Info (21057): Implemented 152 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 153 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 5 input pins
     Info (21059): Implemented 12 output pins
-    Info (21061): Implemented 135 logic cells
+    Info (21061): Implemented 136 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 81 warnings
-    Info: Peak virtual memory: 4800 megabytes
-    Info: Processing ended: Wed Oct 16 07:55:01 2019
+    Info: Peak virtual memory: 4808 megabytes
+    Info: Processing ended: Wed Oct 16 08:18:54 2019
     Info: Elapsed time: 00:00:10
-    Info: Total CPU time (on all processors): 00:00:22
+    Info: Total CPU time (on all processors): 00:00:21
 
 

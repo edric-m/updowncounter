@@ -4,6 +4,7 @@ use ieee.std_logic_1164.all;
 entity clockDiv is
 	port(clk : in std_logic;
 			en	: in std_logic;
+			reset : in std_logic;
 			slow_clk : out std_logic);
 end clockDiv;
 
@@ -14,9 +15,11 @@ signal ctr : integer range 0 to lim;
 signal sclk : std_logic;
 
 begin 
-	process(clk)
+	process(clk,reset)
 	begin
-		if en = '1' then
+		if reset = '1' then
+			ctr <= 0;
+		elsif en = '1' then
 			if clk'event and clk = '0' then
 				
 				ctr <= ctr + 1;

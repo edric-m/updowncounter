@@ -23,6 +23,7 @@ signal cbus : std_logic_vector(2 downto 0);
 component clockdiv
 		port(clk : in std_logic;
 				en	: in std_logic;
+				reset : in std_logic;
 				slow_clk : out std_logic);
 end component;
 
@@ -65,13 +66,10 @@ end component;
 
 begin
 
---unchecked
+--semi-checked
 ct : controller port map (clk => clock, dip => control, ctlBus => cbus);
-
-		--issue: stop does not work sometimes
-
 --checked
-f : clockDiv port map (clk => clock, en => cbus(1), slow_clk => sclk); 
+f : clockDiv port map (clk => clock, en => cbus(1), reset => cbus(2), slow_clk => sclk); 
 c : binaryCtr port map (reset => cbus(2), clk => sclk, mode => cbus(0), bVal => cbin, oled => led);
 g : binToGray port map (bin => cbin, gry => gray);
 gd : grayToDigits port map (g => gray, disp1 => dd1, disp2 => dd2);
