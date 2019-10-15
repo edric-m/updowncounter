@@ -15,6 +15,7 @@ end binaryCtr;
 architecture behav of binaryCtr is
 
 signal ctr : std_logic_vector (5 downto 0) :="000000";
+signal stop : std_logic_vector(4 downto 0) :="00000";
 
 begin
 
@@ -27,12 +28,17 @@ begin
 		else
 			ctr <= "111010"; --reset value count down mode 39d
 		end if;
+		
+		stop <= "00000";
 	
 	elsif clk'event and clk='0' then
-		--if mode = count up
+		
+		if stop /= "11110" then
+			stop <= stop + 1;
+		end if;
 		
 		if mode = '1' then
-			if ctr /= "111111" then
+			if stop /= "11110" then
 			
 				ctr <= ctr + 1;
 				
@@ -44,7 +50,7 @@ begin
 				
 			end if;
 		else
-			if ctr /= "000000" then
+			if stop /= "11110" then
 				ctr <= ctr - 1;
 				oled <= '1';
 			--else output stop counter

@@ -18,7 +18,7 @@
 -- the top level entity of the current Quartus project .The user can use this   
 -- testbench to simulate his design using a third-party simulation tool .       
 -- *****************************************************************************
--- Generated on "10/14/2019 15:48:23"
+-- Generated on "10/15/2019 14:21:06"
                                                              
 -- Vhdl Test Bench(with test vectors) for design  :          top
 -- 
@@ -34,17 +34,17 @@ ARCHITECTURE top_arch OF top_vhd_vec_tst IS
 -- constants                                                 
 -- signals                                                   
 SIGNAL clock : STD_LOGIC;
-SIGNAL control : STD_LOGIC_VECTOR(5 DOWNTO 0);
+SIGNAL control : STD_LOGIC_VECTOR(3 DOWNTO 0);
 SIGNAL dec : STD_LOGIC_VECTOR(6 DOWNTO 0);
 SIGNAL led : STD_LOGIC;
-SIGNAL seg : STD_LOGIC_VECTOR(1 DOWNTO 0);
+SIGNAL seg : STD_LOGIC_VECTOR(3 DOWNTO 0);
 COMPONENT top
 	PORT (
 	clock : IN STD_LOGIC;
-	control : IN STD_LOGIC_VECTOR(5 DOWNTO 0);
-	dec : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
-	led : OUT STD_LOGIC;
-	seg : OUT STD_LOGIC_VECTOR(1 DOWNTO 0)
+	control : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+	dec : BUFFER STD_LOGIC_VECTOR(6 DOWNTO 0);
+	led : BUFFER STD_LOGIC;
+	seg : BUFFER STD_LOGIC_VECTOR(3 DOWNTO 0)
 	);
 END COMPONENT;
 BEGIN
@@ -63,24 +63,12 @@ t_prcs_clock: PROCESS
 BEGIN
 LOOP
 	clock <= '0';
-	WAIT FOR 20000 ps;
+	WAIT FOR 10000 ps;
 	clock <= '1';
-	WAIT FOR 20000 ps;
+	WAIT FOR 10000 ps;
 	IF (NOW >= 1000000 ps) THEN WAIT; END IF;
 END LOOP;
 END PROCESS t_prcs_clock;
--- control[5]
-t_prcs_control_5: PROCESS
-BEGIN
-	control(5) <= '0';
-WAIT;
-END PROCESS t_prcs_control_5;
--- control[4]
-t_prcs_control_4: PROCESS
-BEGIN
-	control(4) <= '0';
-WAIT;
-END PROCESS t_prcs_control_4;
 -- control[3]
 t_prcs_control_3: PROCESS
 BEGIN
@@ -96,7 +84,11 @@ END PROCESS t_prcs_control_2;
 -- control[1]
 t_prcs_control_1: PROCESS
 BEGIN
+	control(1) <= '1';
+	WAIT FOR 400000 ps;
 	control(1) <= '0';
+	WAIT FOR 400000 ps;
+	control(1) <= '1';
 WAIT;
 END PROCESS t_prcs_control_1;
 -- control[0]

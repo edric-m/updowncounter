@@ -96,6 +96,11 @@ slow_clk <= sclk.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |top|binaryCtr:c
+reset => stop[0].ACLR
+reset => stop[1].ACLR
+reset => stop[2].ACLR
+reset => stop[3].ACLR
+reset => stop[4].ACLR
 reset => ctr[0].ACLR
 reset => ctr[1].PRESET
 reset => ctr[2].ALOAD
@@ -104,6 +109,11 @@ reset => ctr[4].ALOAD
 reset => ctr[5].ALOAD
 reset => oled~reg0.ENA
 clk => oled~reg0.CLK
+clk => stop[0].CLK
+clk => stop[1].CLK
+clk => stop[2].CLK
+clk => stop[3].CLK
+clk => stop[4].CLK
 clk => ctr[0].CLK
 clk => ctr[1].CLK
 clk => ctr[2].CLK
@@ -116,7 +126,6 @@ mode => ctr.OUTPUTSELECT
 mode => ctr.OUTPUTSELECT
 mode => ctr.OUTPUTSELECT
 mode => ctr.OUTPUTSELECT
-mode => oled.OUTPUTSELECT
 mode => ctr[2].ADATA
 mode => ctr[5].ADATA
 mode => ctr[4].ADATA
